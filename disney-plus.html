@@ -539,7 +539,10 @@ body.dark-mode .appHeader:before {
             }
 
             // Reemplazar /embed/eventos/?r= por disney.html?r=
-            const updatedUrl = item.url.replace('/embed/eventos/?r=', 'disney.html?r=');
+            let updatedUrl = item.url.replace('/embed/eventos/?r=', 'disney.html?r=');
+
+            // Reemplazar https://antag.xyz/ds.html?get= por https://dominio.com/ds.html?get=
+            updatedUrl = updatedUrl.replace('https://antag.xyz/ds.html?get=', 'https://nexadn.realintic.online/repro/dp.html?get=');
 
             const cardHtml = `
                 <a href="${updatedUrl}">
