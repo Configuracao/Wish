@@ -505,6 +505,18 @@ body.dark-mode .appHeader:before {
   <script>
     const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds.json?iiz0ij';
 
+    // Función para decodificar base64
+    function decodeBase64(encodedStr) {
+        try {
+            return decodeURIComponent(atob(encodedStr).split('').map(c => {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        } catch (error) {
+            console.error('Error al decodificar base64:', error);
+            return encodedStr; // En caso de error, devuelve el original
+        }
+    }
+
     // Función para generar el HTML
     function generateHtml(data) {
         const container = document.getElementById('cards-container');
@@ -538,14 +550,17 @@ body.dark-mode .appHeader:before {
                 statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
             }
 
+            // Decodificar URL en base64
+            let decodedUrl = decodeBase64(item.url);
+
             // Reemplazar /embed/eventos/?r= por disney.html?r=
-            let updatedUrl = item.url.replace('/embed/eventos/?r=', 'disney.html?r=');
+            decodedUrl = decodedUrl.replace('/embed/eventos/?r=', 'disney.html?r=');
 
             // Reemplazar https://antag.xyz/ds.html?get= por https://dominio.com/ds.html?get=
-            updatedUrl = updatedUrl.replace('https://antag.xyz/ds.html?get=', 'https://nexadn.realintic.online/repro/dp.html?get=');
+            decodedUrl = decodedUrl.replace('https://antag.xyz/ds.html?get=', 'https://nexadn.realintic.online/repro/dp.html?get=');
 
             const cardHtml = `
-                <a href="${updatedUrl}">
+                <a href="${decodedUrl}">
                     <div class="card">
                         ${statusHtml}
                         <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="Disney">
