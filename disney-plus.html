@@ -505,18 +505,6 @@ body.dark-mode .appHeader:before {
   <script>
     const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds.json?iiz0ij';
 
-    // Función para decodificar base64
-    function decodeBase64(encodedStr) {
-        try {
-            return decodeURIComponent(atob(encodedStr).split('').map(c => {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-        } catch (error) {
-            console.error('Error al decodificar base64:', error);
-            return encodedStr; // En caso de error, devuelve el original
-        }
-    }
-
     // Función para generar el HTML
     function generateHtml(data) {
         const container = document.getElementById('cards-container');
@@ -550,17 +538,20 @@ body.dark-mode .appHeader:before {
                 statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
             }
 
-            // Decodificar URL en base64
-            let decodedUrl = decodeBase64(item.url);
+            let url = item.url;
 
-            // Reemplazar /embed/eventos/?r= por disney.html?r=
-            decodedUrl = decodedUrl.replace('/embed/eventos/?r=', 'disney.html?r=');
-
-            // Reemplazar solo la parte "https://antag.xyz/ds.html?get=" por "https://dominio.com/ds.html?get="
-            decodedUrl = decodedUrl.replace('https://antag.xyz/ds.html?get=', 'https://nexadn.realintic.online/repro/dp.html?get=');
+            // Si la URL no es "#", realizar las modificaciones
+            if (url !== "#") {
+                let nurl = url.replace("/embed/eventos/?r=", "");
+                nurl = atob(nurl); // Decodificar la URL
+                let wurl = nurl.replace("https://2838.nerxel.com/epa.html?get=", "");
+                wurl = "https://pruevon.blogspot.com/2023/10/star.html?get=" + wurl;
+                let furl = btoa(wurl); // Codificar la nueva URL
+                url = "https://codetv.store/html/eventos.html?r=" + furl;
+            }
 
             const cardHtml = `
-                <a href="${decodedUrl}">
+                <a href="${url}">
                     <div class="card">
                         ${statusHtml}
                         <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="Disney">
