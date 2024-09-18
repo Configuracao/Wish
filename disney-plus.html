@@ -507,85 +507,92 @@ body.dark-mode .appHeader:before {
   <script>
     const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds.json?iiz0ij';
 
-// Función para generar el HTML
-function generateHtml(data) {
-    const container = document.getElementById('cards-container');
-    container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
+    // Función para generar el HTML
+    function generateHtml(data) {
+        const container = document.getElementById('cards-container');
+        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
 
-    // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
-    const sortedData = data.sort((a, b) => {
-        if (a.status === 'EN VIVO') return -1;
-        if (b.status === 'EN VIVO') return 1;
-        if (a.status === 'FINALIZADO') return 1;
-        if (b.status === 'FINALIZADO') return -1;
-        return 0;
-    });
+        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
+        const sortedData = data.sort((a, b) => {
+            if (a.status === 'EN VIVO') return -1;
+            if (b.status === 'EN VIVO') return 1;
+            if (a.status === 'FINALIZADO') return 1;
+            if (b.status === 'FINALIZADO') return -1;
+            return 0;
+        });
 
-    sortedData.forEach(item => {
-        let statusHtml = '';
+        sortedData.forEach(item => {
+            let statusHtml = '';
 
-        // Verifica si el valor de status es "EN VIVO"
-        if (item.status === 'EN VIVO') {
-            statusHtml = '<div class="live">EN VIVO</div>';
-        }
-        // Verifica si el valor de status es "FINALIZADO"
-        else if (item.status === 'FINALIZADO') {
-            statusHtml = '<div class="finalizado">FINALIZADO</div>';
-        }
-        // Verifica si el valor de status es una hora en formato 24h (por ejemplo "18:00")
-        else if (/^\d{2}:\d{2}$/.test(item.status)) {
-            try {
-                const userTimezone = moment.tz.guess(); // Detectar la zona horaria del usuario
-                const spainTimezone = 'Europe/Madrid'; // Zona horaria de España
-
-                // Combina la fecha actual con la hora de status del JSON en la zona horaria de España
-                const currentDate = moment().format('YYYY-MM-DD');
-                const statusDateTimeSpain = `${currentDate}T${item.status}:00`;
-
-                // Convertir la hora de la zona horaria de España a la zona horaria del usuario
-                const statusTime = moment.tz(statusDateTimeSpain, 'YYYY-MM-DDTHH:mm:ss', spainTimezone)
-                                       .tz(userTimezone).format('h:mm a');
-
-                statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
-            } catch (error) {
-                console.error('Error al convertir la hora:', error);
-                statusHtml = `<div class="unknown-status">${item.status}</div>`;
+            // Verifica si el valor de status es "EN VIVO"
+            if (item.status === 'EN VIVO') {
+                statusHtml = '<div class="live">EN VIVO</div>';
             }
-        }
+            // Verifica si el valor de status es "FINALIZADO"
+            else if (item.status === 'FINALIZADO') {
+                statusHtml = '<div class="finalizado">FINALIZADO</div>';
+            }
+            // Verifica si el valor de status es una hora en formato 24h (por ejemplo "18:00")
+            else if (/^\d{2}:\d{2}$/.test(item.status)) {
+                try {
+                    const userTimezone = moment.tz.guess(); // Detectar la zona horaria del usuario
+                    const spainTimezone = 'Europe/Madrid'; // Zona horaria de España
 
-        let url = item.url;
+                    // Combina la fecha actual con la hora de status del JSON en la zona horaria de España
+                    const currentDate = moment().format('YYYY-MM-DD');
+                    const statusDateTimeSpain = `${currentDate}T${item.status}:00`;
 
-        // Si la URL no es "#", realizar las modificaciones
-        if (url !== "#") {
-            let nurl = url.replace("/embed/eventos/?r=", "");
-            nurl = atob(nurl); // Decodificar la URL
-            let wurl = nurl.replace("https://nowomi.quest/ds.html?get=", "");
-            wurl = "https://hirvip4g.alphi.media/hirvip4g.alphi.media/alexvip/star.html?get=" + wurl;
-            let furl = btoa(wurl); // Codificar la nueva URL
-            url = "disney.html?r=" + furl;
-        }
+                    // Convertir la hora de la zona horaria de España a la zona horaria del usuario
+                    const statusTime = moment.tz(statusDateTimeSpain, 'YYYY-MM-DDTHH:mm:ss', spainTimezone)
+                                           .tz(userTimezone).format('h:mm a');
 
-        // HTML para cada tarjeta
-        const cardHtml = `
-            <a href="${url}">
-                <div class="card">
-                    ${statusHtml}
-                    <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="Disney">
-                    <div class="description">${item.league}</div>
-                    <div class="title">${item.title}</div>
-                </div>
-            </a>
-        `;
+                    statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
+                } catch (error) {
+                    console.error('Error al convertir la hora:', error);
+                    statusHtml = `<div class="unknown-status">${item.status}</div>`;
+                }
+            }
 
-        container.innerHTML += cardHtml;
-    });
-}
+            let url = item.url;
 
-// Obtener los datos JSON y generar el HTML
-fetch(jsonUrl)
-    .then(response => response.json())
-    .then(data => generateHtml(data))
-    .catch(error => console.error('Error al cargar el JSON:', error));
+            // Si la URL no es "#", realizar las modificaciones
+            if (url !== "#") {
+                let nurl = url.replace("/embed/eventos/?r=", "");
+                nurl = atob(nurl); // Decodificar la URL
+
+                // Realizar ambos reemplazos de URLs
+                if (nurl.includes("https://nowomi.quest/ds.html?get=")) {
+                    nurl = nurl.replace("https://nowomi.quest/ds.html?get=", "https://hirvip4g.alphi.media/hirvip4g.alphi.media/alexvip/star.html?get=");
+                }
+                else if (nurl.includes("https://nowomi.quest/ds.html?get=")) {
+                    nurl = nurl.replace("https://nowomi.quest/ds.html?get=", "https://hirvip4g.alphi.media/hirvip4g.alphi.media/alexvip/star.html?get=");
+                }
+
+                let furl = btoa(nurl); // Codificar la nueva URL
+                url = "disney.html?r=" + furl;
+            }
+
+            // HTML para cada tarjeta
+            const cardHtml = `
+                <a href="${url}">
+                    <div class="card">
+                        ${statusHtml}
+                        <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="Disney">
+                        <div class="description">${item.league}</div>
+                        <div class="title">${item.title}</div>
+                    </div>
+                </a>
+            `;
+
+            container.innerHTML += cardHtml;
+        });
+    }
+
+    // Obtener los datos JSON y generar el HTML
+    fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => generateHtml(data))
+        .catch(error => console.error('Error al cargar el JSON:', error));
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
