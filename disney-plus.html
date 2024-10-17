@@ -561,11 +561,11 @@ body.dark-mode .appHeader:before {
                 nurl = atob(nurl); // Decodificar la URL
 
                 // Realizar ambos reemplazos de URLs
-                if (nurl.includes("https://antag.xyz/app/dsplayer.php?id=")) {
-                    nurl = nurl.replace("https://antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
+                if (nurl.includes("//antag.xyz/app/dsplayer.php?id=")) {
+                    nurl = nurl.replace("//antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
                 }
-                else if (nurl.includes("https://antag.xyz/app/dsplayer.php?id=")) {
-                    nurl = nurl.replace("https://antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
+                else if (nurl.includes("//antag.xyz/app/dsplayer.php?id=")) {
+                    nurl = nurl.replace("//antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
                 }
 
                 let furl = btoa(nurl); // Codificar la nueva URL
