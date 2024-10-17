@@ -561,11 +561,11 @@ body.dark-mode .appHeader:before {
                 nurl = atob(nurl); // Decodificar la URL
 
                 // Realizar ambos reemplazos de URLs
-                if (nurl.includes("https://nowomi.quest/ds.html?get=")) {
-                    nurl = nurl.replace("https://nowomi.quest/ds.html?get=", "https://firebasestorage.googleapis.com/v0/b/kingtv-c1b76.appspot.com/o/star.html?alt=media&token=3add81b8-1042-40e7-b914-1a3a6429399e?get=");
+                if (nurl.includes("https://antag.xyz/app/dsplayer.php?id=")) {
+                    nurl = nurl.replace("https://antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
                 }
-                else if (nurl.includes("https://nowomi.quest/ds.html?get=")) {
-                    nurl = nurl.replace("https://nowomi.quest/ds.html?get=", "https://firebasestorage.googleapis.com/v0/b/kingtv-c1b76.appspot.com/o/star.html?alt=media&token=3add81b8-1042-40e7-b914-1a3a6429399e?get=");
+                else if (nurl.includes("https://antag.xyz/app/dsplayer.php?id=")) {
+                    nurl = nurl.replace("https://antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
                 }
 
                 let furl = btoa(nurl); // Codificar la nueva URL
