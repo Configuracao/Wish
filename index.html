@@ -1,1242 +1,141 @@
-<html>
- <head>
-  <title>SportsMax - VIX+</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css">
-:root {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-black: #000;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
-  --bs-gray-100: #f8f9fa;
-  --bs-gray-200: #e9ecef;
-  --bs-gray-300: #dee2e6;
-  --bs-gray-400: #ced4da;
-  --bs-gray-500: #adb5bd;
-  --bs-gray-600: #6c757d;
-  --bs-gray-700: #495057;
-  --bs-gray-800: #343a40;
-  --bs-gray-900: #212529;
-  --bs-primary: #17151C;
-  --bs-secondary: #6c757d;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
-  --bs-dark: #212529;
-  --bs-primary-rgb: 13, 110, 253;
-  --bs-secondary-rgb: 108, 117, 125;
-  --bs-success-rgb: 25, 135, 84;
-  --bs-info-rgb: 13, 202, 240;
-  --bs-warning-rgb: 255, 193, 7;
-  --bs-danger-rgb: 220, 53, 69;
-  --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
-  --bs-primary-text-emphasis: #052c65;
-  --bs-secondary-text-emphasis: #2b2f32;
-  --bs-success-text-emphasis: #0a3622;
-  --bs-info-text-emphasis: #055160;
-  --bs-warning-text-emphasis: #664d03;
-  --bs-danger-text-emphasis: #58151c;
-  --bs-light-text-emphasis: #495057;
-  --bs-dark-text-emphasis: #495057;
-  --bs-primary-bg-subtle: #cfe2ff;
-  --bs-secondary-bg-subtle: #e2e3e5;
-  --bs-success-bg-subtle: #d1e7dd;
-  --bs-info-bg-subtle: #cff4fc;
-  --bs-warning-bg-subtle: #fff3cd;
-  --bs-danger-bg-subtle: #f8d7da;
-  --bs-light-bg-subtle: #fcfcfd;
-  --bs-dark-bg-subtle: #ced4da;
-  --bs-primary-border-subtle: #9ec5fe;
-  --bs-secondary-border-subtle: #c4c8cb;
-  --bs-success-border-subtle: #a3cfbb;
-  --bs-info-border-subtle: #9eeaf9;
-  --bs-warning-border-subtle: #ffe69c;
-  --bs-danger-border-subtle: #f1aeb5;
-  --bs-light-border-subtle: #e9ecef;
-  --bs-dark-border-subtle: #adb5bd;
-  --bs-white-rgb: 255, 255, 255;
-  --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
-  --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255, 255, 255;
-  --bs-emphasis-color: #000;
-  --bs-emphasis-color-rgb: 0, 0, 0;
-  --bs-secondary-color: rgba(33, 37, 41, 0.75);
-  --bs-secondary-color-rgb: 33, 37, 41;
-  --bs-secondary-bg: #e9ecef;
-  --bs-secondary-bg-rgb: 233, 236, 239;
-  --bs-tertiary-color: rgba(33, 37, 41, 0.5);
-  --bs-tertiary-color-rgb: 33, 37, 41;
-  --bs-tertiary-bg: #f8f9fa;
-  --bs-tertiary-bg-rgb: 248, 249, 250;
-  --bs-heading-color: inherit;
-  --bs-link-color: #0d6efd;
-  --bs-link-color-rgb: 13, 110, 253;
-  --bs-link-decoration: underline;
-  --bs-link-hover-color: #0a58ca;
-  --bs-link-hover-color-rgb: 10, 88, 202;
-  --bs-code-color: #d63384;
-  --bs-highlight-color: #212529;
-  --bs-highlight-bg: #fff3cd;
-  --bs-border-width: 1px;
-  --bs-border-style: solid;
-  --bs-border-color: #dee2e6;
-  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375rem;
-  --bs-border-radius-sm: 0.25rem;
-  --bs-border-radius-lg: 0.5rem;
-  --bs-border-radius-xl: 1rem;
-  --bs-border-radius-xxl: 2rem;
-  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
-  --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --bs-focus-ring-width: 0.25rem;
-  --bs-focus-ring-opacity: 0.25;
-  --bs-focus-ring-color: rgba(13, 110, 253, 0.25);
-  --bs-form-valid-color: #198754;
-  --bs-form-valid-border-color: #198754;
-  --bs-form-invalid-color: #dc3545;
-  --bs-form-invalid-border-color: #dc3545;
-}
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    scroll-behavior: smooth;
-  }
-}
-body {
-  margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
-  line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-}
-h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--bs-heading-color);
-}
-h1 {
-  font-size: calc(1.375rem + 1.5vw);
-}
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-img {
-  vertical-align: middle;
-}
-.container {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 1;
-  width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1320px;
-  }
-}
-:root {
-  --bs-breakpoint-xs: 0;
-  --bs-breakpoint-sm: 576px;
-  --bs-breakpoint-md: 768px;
-  --bs-breakpoint-lg: 992px;
-  --bs-breakpoint-xl: 1200px;
-  --bs-breakpoint-xxl: 1400px;
-}
-.row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-}
-.m-auto {
-  margin: auto !important;
-}
-.text-light {
-  --bs-text-opacity: 1;
-  color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
-}
-.bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(
-    var(--bs-primary-rgb),
-    var(--bs-bg-opacity)
-  ) !important;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  line-height: 1.6rem;
-  letter-spacing: 0.004em;
-  color: #958d9e;
-  background: #ededf5;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  background-color: #0b0f1a;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px #191826;
-  background-color: #555;
-}
-.appHeader {
-  height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: env(safe-area-inset-top);
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: #ffffff;
-  color: #27173e;
-  border-bottom: 1px solid #dcdce9;
-}
-.appHeader:before {
-  content: "";
-  height: env(safe-area-inset-top);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 99999;
-  background: #fff;
-}
-.appHeader .left {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
-.appHeader .left {
-  left: 10px;
-  top: 0;
-}
-.appHeader .right {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
-.appHeader .right {
-  right: 10px;
-  top: 0;
-}
-.appHeader .pageTitle {
-  font-size: 17px;
-  font-weight: 500;
-  padding: 0 10px;
-}
-.appHeader.text-light {
-  color: #fff;
-}
-.appHeader.bg-primary {
-  border: 0;
-}
-.appHeader.bg-primary:before {
-  background: #17151C !important;
-}
-.row {
-  margin-left: -8px;
-  margin-right: -8px;
-}
-h1 {
-  color: #27173e;
-  margin: 0 0 10px 0;
-}
-h1 {
-  font-size: 32px;
-  font-weight: 700;
-}
-.bg-primary {
-  background: #17151C !important;
-  color: #fff;
-}
-.text-light {
-  color: #fff !important;
-}
-body.dark-mode {
-  background: #100E12;
-  color: #ffffff;
-}
-body.dark-mode h1 {
-  color: #fff;
-}
-body.dark-mode .appHeader {
-  background: #17151C;
-  color: #fff;
-  border-bottom-color: #00a6e5;
-}
-body.dark-mode .appHeader:before {
-  background: #17151C;
-}
-
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecmNE.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-.invert-naranja {
-    filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(1000%);
-}
-
-.button-regresar {
-    background-color: #17151C;
-    color: white;
-    font-size: 18px;
-    border: none; 
-    padding: 10px 20px;
-    cursor: pointer; 
-    border-radius: 5px; 
-    outline: none; 
-}
-
-  </style>
- </head>
- <body class="dark-mode container" oncontextmenu="return false;" ondragstart="return false;" ondrop="return false;" style="user-select: none;">
-  <div class="w3-main w3-content w3-padding" style="max-width:1300px;margin-top:80px">
-   <!-- App Header -->
-   <div class="appHeader bg-primary text-light">
-    <div class="pageTitle">
-     <div class="left">
-      <h3>SportsMax+</h3>
-     </div>
-     <div class="right">
-      <button onclick="window.location.href='/application-webview/inicio/'" class="button-regresar">Recargar</button>
-     </div>
-    </div>
-   </div>
-  </div><!--center>
-   <p class="m-auto" style="font-size:20px">
-      <img src="https://i.imgur.com/1M1y2t6.png" width="80"> | Eventos Deportivos
-   </p>
-   
-   <div id="caliente-tv" class="caliente-tv"> No Disponible</div>
-</center>-->
-
-<center>
-   <p class="m-auto" style="font-size:20px">
-      <img src="https://i.imgur.com/0dI8VFF.png" width="80"> | Eventos Deportivos
-   </p>
-      <div id="disney" class="disneyplus"> No Disponible</div>
-   </center
-  <center>
-   <p class="m-auto" style="font-size:20px"><img src="https://deportestvhd3.com/img/logovixplus.png" width="80" class="logo1 invert-naranja"> | Eventos Deportivos</p>
-   <div id="vix" class="vix">
-    No Disponible
-   </div>
-  </center>
-  <center>
-   <p class="m-auto" style="font-size:20px"><img src="https://i.imgur.com/zJgTLFg.png" width="80" class="logo1"> | Eventos Deportivos</p>
-   <div id="skysports" class="vix">
-    No Disponible
-   </div>
-  </center><!--div id="max" class="max"></div>
-   <div id="calientetv" class="calientetv"></div-->
-  <style>
-    .disneyplus, .vix, .max, .caliente-tv {
-        display: flex;
-        overflow-x: auto; /* Permite el desplazamiento horizontal */
-        gap: 20px; /* Espacio entre las tarjetas */
-        padding: 20px;
-        scroll-snap-type: x mandatory; /* Permite el efecto de "snap" al deslizar */
-        white-space: nowrap; /* Evita que las tarjetas se envuelvan */
-    }
-
-    .disneyplus a, .vix a, .max a, .caliente-tv a {
-        text-decoration: none; /* Elimina el subrayado de los enlaces */
-        color: inherit; /* Hereda el color de los elementos secundarios */
-    }
-
-    .card {
-        flex: 0 0 auto; /* Evita que las tarjetas se reduzcan de tamaño */
-        width: 300px;
-        border: 1px solid #17151C;
-        border-radius: 8px;
-        overflow: hidden;
-        scroll-snap-align: start; /* Alinea la tarjeta al comienzo del carrusel */
-        position: relative;
-        background-color: #17151C; /* Fondo para mejorar el contraste */
-    }
-
-    .card img {
-        width: 100%;
-        height: auto;
-        display: block;
-        pointer-events: none;
-    }
-
-    .live, .finalizado {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        color: white;
-        padding: 2px 4px;
-        border-radius: 8px;
-        font-size: 14px;
-    }
-
-    .live {
-        background-color: red;
-    }
-
-    .finalizado {
-        background-color: #190C26;
-    }
-
-    .description {
-        padding: 8px;
-        font-size: 14px;
-        color: #fff;
-    }
-
-    .title {
-        padding: 0 8px 8px;
-        font-size: 16px;
-        color: #fff;
-    }
-
-    /* Estilos opcionales para eliminar scrollbars en ciertos navegadores */
-    .disneyplus::-webkit-scrollbar,
-    .vix::-webkit-scrollbar,
-    .max::-webkit-scrollbar,
-    .caliente-tv::-webkit-scrollbar {
-        display: none; /* Ocultar el scrollbar en navegadores Webkit */
-    }
-
-    .disneyplus, .vix, .max, .caliente-tv {
-        -ms-overflow-style: none;  /* Ocultar el scrollbar en IE y Edge */
-        scrollbar-width: none;  /* Ocultar el scrollbar en Firefox */
-    }
-    
-    .event-card {
-    transition: background-color 0.3s;
-}
-
-.event-card.focused {
-    background-color: rgba(255, 255, 0, 0.5); /* Color de fondo al enfocarse */
-}
-</style>
-  <script>
-(function() {
-    const jsonUrlDisney = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json'; // Verifica que esta URL sea correcta
-    const baseUrlReemplazo = '/dsplayer.html?id=';
-
-    function isBase64(str) {
-        try {
-            return btoa(atob(str)) === str;
-        } catch (err) {
-            return false;
-        }
-    }
-
-    function decodeBase64(encodedString) {
-        return atob(encodedString);
-    }
-
-    function generateHtmlDisney(data) {
-        const container = document.getElementById('disney');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos eventos
-
-        // Ordenar los datos
-        const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO' && b.status !== 'EN VIVO') return -1; // a va antes que b
-            if (b.status === 'EN VIVO' && a.status !== 'EN VIVO') return 1;  // b va antes que a
-            if (a.status === 'FINALIZADO' && b.status !== 'FINALIZADO') return 1; // a va después de b
-            if (b.status === 'FINALIZADO' && a.status !== 'FINALIZADO') return -1; // b va después de a
-            return 0; // Mantener el orden original para otros estados
-        });
-
-        // Generar el HTML de los eventos
-        sortedData.forEach(item => {
-            let statusHtml = '';
-
-            // Mostrar el estado del evento
-            if (item.status === 'EN VIVO') {
-                statusHtml = '<span class="event-status">VIVO</span>';
-            } else if (item.status === 'FINALIZADO') {
-                statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            } else {
-                statusHtml = `<span class="event-fina">HOY | ${item.statusstart}</span>`;
-            }
-
-            // Desencriptar la URL
-            const decodedUrl = decodeBase64(item.url.split('=')[1]); // Extraer el parámetro encriptado y desencriptarlo
-            const nuevaUrl = `/dsplayer.html?id=${decodedUrl.replace('//antag.xyz/app/dsplayer.php?id=', '')}`; // Reemplazar y crear la nueva URL
-
-            // Crear el HTML de la tarjeta
-            const cardHtml = `
-                <a href="${nuevaUrl}" target="_blank">
-                    <div class="event-card" tabindex="0" 
-                         onfocus="this.classList.add('focused')" 
-                         onblur="this.classList.remove('focused')">
-                        <img class="background" src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="${item.title}"> <!-- Asegúrate de que la URL de la imagen sea válida -->
-                        <h2 class="event-title">${item.title}</h2>
-                        ${statusHtml}
-                    </div>
-                </a>
-            `;
-            container.innerHTML += cardHtml; // Agregar cada tarjeta al contenedor
-        });
-    }
-
-    function updateDisneyData() {
-        fetch(jsonUrlDisney)
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
-            })
-            .then(data => {
-                console.log("Datos cargados:", data); // Para verificar los datos
-                generateHtmlDisney(data);
-            })
-            .catch(error => console.error('Error al cargar el JSON de Disney:', error));
-    }
-
-    updateDisneyData();
-    setInterval(updateDisneyData, 60000); // Actualizar cada 60 segundos
-})();
-</script>
-  <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #f0f0f0;
-            --accent-color: #ff4d4d;
-            --text-color: #ffffff;
-        }
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Canales</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            background-color: #1a1a1a; /* Fondo oscuro */
+            color: white; /* Color del texto */
             margin: 0;
             padding: 20px;
         }
-
-        .events-container {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        header {
+            text-align: center;
+            margin-bottom: 20px;
         }
-
-        .events-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .events-scroll {
-            display: flex;
-            gap: 20px;
-            padding-bottom: 20px;
-        }
-
-        .event-card {
-            flex: 0 0 auto;
-            width: 300px;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .event-card img.background {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .event-title {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 1em;
-            font-weight: bold;
-            margin: 0;
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 5px 10px;
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
-
-.event-des {
-    position: absolute;
-    top: 10px; /* Mover hacia arriba */
-    left: 50%; /* Centrar horizontalmente */
-    transform: translateX(-50%); /* Ajustar el centrado */
-    font-size: 0.8em; /* Tamaño de fuente más pequeño */
-    font-weight: bold;
-    margin: 0;
-    background-color: rgba(0, 0, 0, 0.0);
-    padding: 5px 4px;
-    border-radius: 5px;
-}
-
-
-
-        .event-status {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: red;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: bold;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            gap: 20px; /* Espacio entre los contenedores */
         }
-        
-        .event-fina {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #000;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
+        .channel {
+            background: #2b2b2b; /* Contenedor gris oscuro */
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column; /* Coloca los elementos en columna */
+            justify-content: space-between; /* Espacia elementos uniformemente */
+            height: 220px; /* Altura fija para uniformidad */
         }
-
-        .event-logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: 25px;
+        .channel img {
+            width: 100%; /* Ancho del 100% del contenedor */
+            height: 120px; /* Altura fija para uniformidad */
+            object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+            border-radius: 5px;
         }
-
-        .event-logo-sky {
-            position: absolute;
-            top: 1px;
-            left: 10px;
-            width: 70px;
-            height: 50px;
+        .channel h3 {
+            margin: 10px 0;
+            color: #f0f0f0; /* Título más claro */
+            font-size: 18px; /* Tamaño de fuente del título */
+            flex-shrink: 0; /* Evita que el título se reduzca */
         }
-        .event-card {
-    transition: background-color 0.3s;
-}
-
-.event-card.focused {
-    background-color: rgba(255, 255, 0, 0.5); /* Color de fondo al enfocarse */
-}
+        .btn-ver-canal {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: auto; /* Asegura que el botón se desplace al final */
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Color de fondo */
+            color: white; /* Color del texto */
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-ver-canal:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+        .no-results {
+            display: none;
+            text-align: center;
+            color: red;
+        }
     </style>
-  <script>
-(function() {
-    const jsonUrlVix = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/vix.json';
-    const baseUrlReemplazo = '/vixplayer.html?id=';
+</head>
+<body>
+    <header>
+        <h1>Eventos Deportivos</h1>
+        <input type="text" id="channel-search" placeholder="Buscar canal" oninput="filterChannels()">
+        <p class="no-results" id="no-results-message">Sin resultados, escribe algo en el buscador.</p>
+    </header>
+    <main>
+        <div class="container" id="channel-list">
+            <!-- Canales en orden secuencial -->
+            <div class="channel">
+                <img src="https://i.imgur.com/0dI8VFF.png" alt="Disney">
+                <h3>Eventos Disney+</h3>
+                <a href="/disney-plus.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://deportestvhd3.com/img/logovixplus.png" alt="Vix">
+                <h3>Eventos Vix+</h3>
+                <a href="/vix-plus.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn.webp" alt="Espn">
+                <h3>Espn</h3>
+                <a href="/espn.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn2.webp" alt="Espn 2">
+                <h3>Espn 2</h3>
+                <a href="/espn2.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn3.webp" alt="Espn 3">
+                <h3>Espn 3</h3>
+                <a href="/espn3.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://deportetvhd.com/img/daznlaliga.png" alt="Dazn La Liga">
+                <h3>Dazn La Liga</h3>
+                <a href="http://ejemplo.com/canal6" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <!-- Agrega más canales en el orden que desees -->
+        </div>
+    </main>
 
-    function isBase64(str) {
-        try {
-            return btoa(atob(str)) === str;
-        } catch (err) {
-            return false;
+    <script>
+        function filterChannels() {
+            const input = document.getElementById("channel-search").value.toLowerCase();
+            const channels = document.querySelectorAll(".channel");
+            let hasResults = false;
+
+            channels.forEach(channel => {
+                const title = channel.querySelector("h3").textContent.toLowerCase();
+                if (title.includes(input)) {
+                    channel.style.display = "block";
+                    hasResults = true;
+                } else {
+                    channel.style.display = "none";
+                }
+            });
+
+            document.getElementById("no-results-message").style.display = hasResults ? "none" : "block";
         }
-    }
-
-    function decodeBase64(encodedString) {
-        return atob(encodedString);
-    }
-
-    function generateHtmlVix(data) {
-        const container = document.getElementById('vix');
-        container.innerHTML = '';
-
-        const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO') return -1;
-            if (b.status === 'EN VIVO') return 1;
-            if (a.status === 'FINALIZADO') return 1;
-            if (b.status === 'FINALIZADO') return -1;
-            return 0;
-        });
-
-        sortedData.forEach(item => {
-            let statusHtml = '';
-
-            if (item.status === 'EN VIVO') {
-                statusHtml = '<span class="event-status">VIVO</span>';
-            } else if (item.status === 'FINALIZADO') {
-                statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            } else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                const userTimezone = moment.tz.guess();
-                const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
-                statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
-            }
-
-            let nuevaUrl = item.url;
-            if (isBase64(item.url)) {
-                const decodedUrl = decodeBase64(item.url);
-                nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/jw.php?id=', baseUrlReemplazo);
-            }
-
-            // Agregar tabindex y eventos focus/blur
-            const cardHtml = `
-                <a href="${nuevaUrl}" target="_blank">
-                    <div class="event-card" tabindex="0" 
-                         onfocus="this.classList.add('focused')" 
-                         onblur="this.classList.remove('focused')">
-                        <img class="background" src="${item.img}" alt="${item.title}">
-                        <h2 class="event-title">${item.title}</h2>
-                        <h4 class="event-des">${item.description}</h4>
-                        ${statusHtml}
-                        <img class="event-logo logo1 invert-naranja" src="https://deportestvhd3.com/img/logovixplus.png" alt="Logo del Evento">
-                    </div>
-                </a>
-            `;
-            container.innerHTML += cardHtml;
-        });
-    }
-
-    function updateVixData() {
-        fetch(jsonUrlVix)
-            .then(response => response.json())
-            .then(data => generateHtmlVix(data))
-            .catch(error => console.error('Error al cargar el JSON de Vix:', error));
-    }
-
-    updateVixData();
-    setInterval(updateVixData, 60000);
-})();
-</script>
-  <script>
-(function() {
-    const jsonUrlSky = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/skysports/sky.json';
-
-    // Función para generar el HTML de Sky Sports
-    function generateHtmlSky(data) {
-        const container = document.getElementById('skysports');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
-
-        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
-        const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO') return -1;
-            if (b.status === 'EN VIVO') return 1;
-            if (a.status === 'FINALIZADO') return 1;
-            if (b.status === 'FINALIZADO') return -1;
-            return 0;
-        });
-
-        sortedData.forEach(item => {
-            let statusHtml = '';
-
-            // Verifica si el valor de status es "EN VIVO"
-            if (item.status === 'EN VIVO') {
-                statusHtml = '<span class="event-status">VIVO</span>';
-            }
-            // Verifica si el valor de status es "FINALIZADO"
-            else if (item.status === 'FINALIZADO') {
-                statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            }
-            // Verifica si el valor de status es un número o una hora (en formato "HH:MM")
-            else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                // Convertir la hora de UTC+2 a la zona horaria del cliente
-                const userTimezone = moment.tz.guess();
-                const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
-                statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
-            }
-
-            const cardHtml = `
-                <a href="/application-webview/vix/evento/?r=${item.url}">
-                    <div class="event-card">
-                        <img class="background" src="${item.img}" alt="${item.title}">
-                        <h2 class="event-title">${item.title}</h2>
-                        <h4 class="event-des">${item.description}</h4>
-                        ${statusHtml}
-                        <img class="event-logo-sky" src="https://i.imgur.com/zJgTLFg.png" alt="Logo del Evento">
-                    </div>
-                </a>
-            `;
-            container.innerHTML += cardHtml;
-        });
-    }
-
-    // Función para obtener los datos JSON de Sky Sports y generar el HTML
-    function updateSkyData() {
-        fetch(jsonUrlSky)
-            .then(response => response.json())
-            .then(data => generateHtmlSky(data))
-            .catch(error => console.error('Error al cargar el JSON de Sky Sports:', error));
-    }
-
-    // Llamar a la función para cargar los datos la primera vez
-    updateSkyData();
-
-    // Configurar el intervalo para actualizar cada 60 segundos (60000 ms)
-    setInterval(updateSkyData, 60000);
-})();
-</script>
-  <script>
-(function() {
-    const jsonUrlDisney = 'https://shplus.240025.xyz/disney/full/all.php';
-
-    // Función para generar el HTML de Sky Sports
-    function generateHtmlDisney(data) {
-        const container = document.getElementById('disney');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
-
-        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
-        const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO') return -1;
-            if (b.status === 'EN VIVO') return 1;
-            if (a.status === 'FINALIZADO') return 1;
-            if (b.status === 'FINALIZADO') return -1;
-            return 0;
-        });
-
-        sortedData.forEach(item => {
-            let statusHtml = '';
-
-            // Verifica si el valor de status es "EN VIVO"
-            if (item.status === 'EN VIVO') {
-                statusHtml = '<span class="event-status">VIVO</span>';
-            }
-            // Verifica si el valor de status es "FINALIZADO"
-            else if (item.status === 'FINALIZADO') {
-                statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            }
-            // Verifica si el valor de status es un número o una hora (en formato "HH:MM")
-            else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                // Convertir la hora de UTC+2 a la zona horaria del cliente
-                const userTimezone = moment.tz.guess();
-                const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
-                statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
-            }
-
-            const cardHtml = `
-                <a href="/application-webview/disneyplus/evento/?r=${item.url}">
-                    <div class="event-card">
-                        <img class="background" src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/${item.img}/scale?width=500&aspectRatio=1.78&format=jpeg" alt="${item.title}">
-                        <h2 class="event-title">${item.title}</h2>
-                        ${statusHtml}
-                    </div>
-                </a>
-            `;
-            container.innerHTML += cardHtml;
-        });
-    }
-
-    // Función para obtener los datos JSON de Sky Sports y generar el HTML
-    function updateDisneyData() {
-        fetch(jsonUrlDisney)
-            .then(response => response.json())
-            .then(data => generateHtmlDisney(data))
-            .catch(error => console.error('Error al cargar el JSON de Disney:', error));
-    }
-
-    // Llamar a la función para cargar los datos la primera vez
-    updateDisneyData();
-
-    // Configurar el intervalo para actualizar cada 60 segundos (60000 ms)
-    setInterval(updateDisneyData, 60000);
-})();
-</script>
-  <script>
-        (function() {
-            const jsonUrlDisney = 'https://api.codetabs.com/v1/proxy/?quest=https://shplus.240025.xyz/vix-appli/json/caliente-tv/caliente-tv.json';
-
-            // Función para generar el HTML de Disney Plus
-            function generateHtmlDisney(data) {
-                const container = document.getElementById('caliente-tv');
-                container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
-
-                // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
-                const sortedData = data.sort((a, b) => {
-                    if (a.status === 'EN VIVO') return -1;
-                    if (b.status === 'EN VIVO') return 1;
-                    if (a.status === 'FINALIZADO') return 1;
-                    if (b.status === 'FINALIZADO') return -1;
-                    return 0;
-                });
-
-                sortedData.forEach(item => {
-                    let statusHtml = '';
-
-                    if (item.status === 'EN VIVO') {
-                        statusHtml = '<div class="live">EN VIVO</div>';
-                    } else if (item.status === 'FINALIZADO') {
-                        statusHtml = '<div class="finalizado">FINALIZADO</div>';
-                    } else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                        const userTimezone = moment.tz.guess();
-                        //const statusTime = moment.tz(item.status, 'h:mm a', 'America/Mexico_City').tz(userTimezone).format('h:mm a');
-                        const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
-                    statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
-                    }
-
-                    const cardHtml = `
-                        <a href="/application-webview/caliente-tv/evento/?r=${item.url}">
-                            <div class="card">
-                                ${statusHtml}
-                                <img src="${item.img}" alt="Disney">
-                                <div class="description">${item.description}</div>
-                                <div class="title">${item.title}</div>
-                            </div>
-                        </a>
-                    `;
-                    container.innerHTML += cardHtml;
-                });
-            }
-
-            // Obtener los datos JSON de Disney Plus y generar el HTML
-            fetch(jsonUrlDisney)
-                .then(response => response.json())
-                .then(data => generateHtmlDisney(data))
-                .catch(error => console.error('Error al cargar el JSON de Disney Plus:', error));
-        })();
     </script>
-  <center>
-   <h2 style="color:white;">VOD</h2>
-  </center>
-  <br>
-  <center>
-   <style>
-    /* Estilo para el contenedor principal del carrusel */
-    .carousel-container2 {
-        display: flex;
-        overflow-x: auto; /* Permite el deslizamiento horizontal */
-        white-space: nowrap; /* Evita que las tarjetas salten a la siguiente línea */
-        width: 100%;
-        max-width: 1000px; /* Ancho máximo del carrusel */
-        padding: 10px 0; /* Espacio superior e inferior */
-        scroll-behavior: smooth; /* Suaviza el desplazamiento */
-        scrollbar-width: thin; /* Barra de desplazamiento delgada para Firefox */
-    }
-
-    /* Enlaces de las tarjetas (contenedor de cada tarjeta) */
-    a {
-        text-decoration: none; /* Sin subrayado en los enlaces */
-        margin: 10px; /* Espacio entre las tarjetas */
-        display: inline-block; /* Las tarjetas se alinean horizontalmente */
-        outline: none; /* Elimina el contorno al enfocar */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones de hover */
-    }
-
-    a:hover {
-        transform: translateY(-5px); /* Eleva ligeramente la tarjeta al pasar el mouse */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra en hover */
-    }
-
-    /* Estilo para la tarjeta de cada canal */
-    .canales {
-        width: 160px; /* Ancho fijo de cada tarjeta */
-        height: 100px; /* Altura fija de cada tarjeta */
-        overflow: hidden;
-        border-radius: 15px; /* Esquinas más redondeadas */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para darle efecto de profundidad */
-        background-color: rgba(50, 50, 100, 0.8); /* Fondo más oscuro y opaco */
-        backdrop-filter: blur(12px); /* Mayor desenfoque del fondo */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease; /* Efecto de hover suave */
-        cursor: pointer;
-    }
-
-    /* Efecto hover para la tarjeta */
-    .canales:hover {
-        transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
-    }
-
-    /* Estilo para la imagen dentro de cada tarjeta */
-    .canales img {
-        width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-        height: 100%; /* La imagen ocupa toda la altura del contenedor */
-        object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
-        border-radius: 15px; /* Mantiene las esquinas redondeadas en la imagen */
-    }
-
-    /* Personalización de la barra de desplazamiento para navegadores WebKit */
-    .carousel-container2::-webkit-scrollbar {
-        height: 8px; /* Altura de la barra de desplazamiento */
-    }
-
-    .carousel-container2::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.6); /* Color del pulgar de la barra */
-        border-radius: 5px; /* Esquinas redondeadas para el pulgar */
-    }
-
-    .carousel-container2::-webkit-scrollbar-track {
-        background-color: rgba(50, 50, 100, 0.4); /* Color del fondo de la barra */
-    }
-
-    .carousel-container2::after {
-        right: 0;
-        transform: rotate(180deg);
-    }
-</style>
-   <div id="carousel-container2" class="carousel-container2">
-    <a href="/application-webview/skysports-uefa-nations-leagues-cortos">
-     <div class="canales">
-      <img src="https://shplus.240025.xyz/mls/redi.php?img=https://seeklogo.com/images/U/uefa-nations-league-logo-59A91CE207-seeklogo.com.png" alt="Canal 1">
-     </div></a>
-   </div>
-  </center>
-  <center>
-   <h2 style="color:white;">Canales</h2>
-  </center>
-  <br>
-  <center>
-   <div class="carousel-container" id="carousel-container">
-    <a href="/application-webview/live/?id=1">
-     <div class="canales">
-      <img src="https://i.imgur.com/zJgTLFg.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=2">
-     <div class="canales">
-      <img src="https://i.imgur.com/ubSQrIK.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=3">
-     <div class="canales">
-      <img src="https://i.imgur.com/1M1y2t6.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=4">
-     <div class="canales">
-      <img src="https://i.imgur.com/9EMJy4y.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=5">
-     <div class="canales">
-      <img src="https://i.imgur.com/R1A1e7g.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=6">
-     <div class="canales">
-      <img src="https://i.imgur.com/wxjKmFx.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=7">
-     <div class="canales">
-      <img src="https://i.imgur.com/2pVt4tV.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=8">
-     <div class="canales">
-      <img src="https://i.imgur.com/nQsSQ7x.png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=9">
-     <div class="canales">
-      <img src="https://shplus.240025.xyz/mls/white.php?img=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9OZO2aWddd9OZJ8afG2FizfoZgDdF6sWIuve6DRFM6N4N3Z4vj0ewpq5a7DXyCZ55wOfheGewNaslHkpjYMy-ATDF5cBUBT4VPX31ldm-O7klJnXSsWO_Ju73XC5LXh92EolHR-nHjtGX_xA1XZaA1QCRq5GYx2qf_vJmJ2oqCUXTAxMD2Y5ZsTt2/s320/Fox_Sports_Logo-2022.png&amp;tipo=png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=10">
-     <div class="canales">
-      <img src="https://shplus.240025.xyz/mls/white.php?img=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCtoRQx5k5Wgs-mpBxOQoiyAhqww4Afjkp5ZL9_2u7_MdQ3Q5D9Hx5Ogjqpuudmp_kr1Y_1SL3v_u3yeiZcrYG8Waddhh-mzghZuoy2EtDlv5ZbeWReV-GYHe800D4QHC_7qn5-KAN1PQZjbiu4M59kr7qR3htD4LnHCr_R45uDdcJ4BrVe0b_Uun6/s486/fs2-logo2022.png&amp;tipo=png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=11">
-     <div class="canales">
-      <img src="https://shplus.240025.xyz/mls/white.php?img=https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjP2XYCbVtcoVCWwczWDQEY0NNnoHj2mPjPjU7ZeCVKvWW6Bu9DChmyWKwjy7BZLo92Iia64YhBZRye1xgtWPZ3Q5qfAiF_A3D-R0k9uJQLuQ8-AenPvKA-AbMshVPzpsfWQ0na3Ebp8ravf-XQp0Xmt2zEG1sJvJeYZTzEGXZ8YNw2VYKT_zZw9_ER/s1600/FS3-logo2022.png&amp;tipo=png" alt="Canal">
-     </div></a> <a href="/application-webview/live/?id=12">
-     <div class="canales">
-      <img src="https://shplus.240025.xyz/mls/white.php?img=https://1.bp.blogspot.com/-_e_MXyfkD-4/X8J6izm9gMI/AAAAAAAA7S0/ajKw7Vqtu5Ubi6gJKHKHtMt0czUBWVYXwCLcBGAsYHQ/s0/Fox-Sports-Premium_Argentina_2019.png&amp;tipo=png" alt="Canal">
-     </div></a>
-   </div>
-  </center>
-  <style>
-    /* Estilo para el contenedor principal del carrusel */
-    .carousel-container {
-        display: flex;
-        overflow-x: auto; /* Permite el deslizamiento horizontal */
-        white-space: nowrap; /* Evita que las tarjetas salten a la siguiente línea */
-        width: 100%;
-        max-width: 1000px; /* Ancho máximo del carrusel */
-        padding: 10px 0; /* Espacio superior e inferior */
-        scroll-behavior: smooth; /* Suaviza el desplazamiento */
-        scrollbar-width: thin; /* Barra de desplazamiento delgada para Firefox */
-    }
-
-    /* Enlaces de las tarjetas (contenedor de cada tarjeta) */
-    a {
-        text-decoration: none; /* Sin subrayado en los enlaces */
-        margin: 10px; /* Espacio entre las tarjetas */
-        display: inline-block; /* Las tarjetas se alinean horizontalmente */
-        outline: none; /* Elimina el contorno al enfocar */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones de hover */
-    }
-
-    a:hover {
-        transform: translateY(-5px); /* Eleva ligeramente la tarjeta al pasar el mouse */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta la sombra en hover */
-    }
-
-    /* Estilo para la tarjeta de cada canal */
-    .canales {
-        width: 160px; /* Ancho fijo de cada tarjeta */
-        height: 100px; /* Altura fija de cada tarjeta */
-        overflow: hidden;
-        border-radius: 15px; /* Esquinas más redondeadas */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para darle efecto de profundidad */
-        background-color: rgba(50, 50, 100, 0.8); /* Fondo más oscuro y opaco */
-        backdrop-filter: blur(12px); /* Mayor desenfoque del fondo */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease; /* Efecto de hover suave */
-        cursor: pointer;
-    }
-
-    /* Efecto hover para la tarjeta */
-    .canales:hover {
-        transform: scale(1.1); /* Aumenta ligeramente el tamao al pasar el mouse */
-    }
-
-    /* Estilo para la imagen dentro de cada tarjeta */
-    .canales img {
-        width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-        height: 100%; /* La imagen ocupa toda la altura del contenedor */
-        object-fit: cover; /* Mantiene la proporcin de la imagen sin deformarla */
-        border-radius: 15px; /* Mantiene las esquinas redondeadas en la imagen */
-    }
-
-    /* Personalizacin de la barra de desplazamiento para navegadores WebKit */
-    .carousel-container::-webkit-scrollbar {
-        height: 8px; /* Altura de la barra de desplazamiento */
-    }
-
-    .carousel-container::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.6); /* Color del pulgar de la barra */
-        border-radius: 5px; /* Esquinas redondeadas para el pulgar */
-    }
-
-    .carousel-container::-webkit-scrollbar-track {
-        background-color: rgba(50, 50, 100, 0.4); /* Color del fondo de la barra */
-    }
-
-
-    .carousel-container::after {
-        right: 0;
-        transform: rotate(180deg);
-    }
-</style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8d69d46b3ee12230',t:'MTcyOTYwMzY5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
- </body>
+</body>
 </html>

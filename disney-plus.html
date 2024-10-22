@@ -1,601 +1,181 @@
-<html>
- <head>
-  <title>SportsHub - VIX+</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css">
-:root {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #1C1A1D;
-  --bs-purple: #1C1A1D;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-black: #000;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
-  --bs-gray-100: #f8f9fa;
-  --bs-gray-200: #e9ecef;
-  --bs-gray-300: #dee2e6;
-  --bs-gray-400: #ced4da;
-  --bs-gray-500: #adb5bd;
-  --bs-gray-600: #6c757d;
-  --bs-gray-700: #495057;
-  --bs-gray-800: #343a40;
-  --bs-gray-900: #212529;
-  --bs-primary: #1C1A1D;
-  --bs-secondary: #6c757d;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
-  --bs-dark: #212529;
-  --bs-primary-rgb: 13, 110, 253;
-  --bs-secondary-rgb: 108, 117, 125;
-  --bs-success-rgb: 25, 135, 84;
-  --bs-info-rgb: 13, 202, 240;
-  --bs-warning-rgb: 255, 193, 7;
-  --bs-danger-rgb: 220, 53, 69;
-  --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
-  --bs-primary-text-emphasis: #052c65;
-  --bs-secondary-text-emphasis: #2b2f32;
-  --bs-success-text-emphasis: #0a3622;
-  --bs-info-text-emphasis: #055160;
-  --bs-warning-text-emphasis: #664d03;
-  --bs-danger-text-emphasis: #58151c;
-  --bs-light-text-emphasis: #495057;
-  --bs-dark-text-emphasis: #495057;
-  --bs-primary-bg-subtle: #cfe2ff;
-  --bs-secondary-bg-subtle: #e2e3e5;
-  --bs-success-bg-subtle: #d1e7dd;
-  --bs-info-bg-subtle: #cff4fc;
-  --bs-warning-bg-subtle: #fff3cd;
-  --bs-danger-bg-subtle: #f8d7da;
-  --bs-light-bg-subtle: #fcfcfd;
-  --bs-dark-bg-subtle: #ced4da;
-  --bs-primary-border-subtle: #9ec5fe;
-  --bs-secondary-border-subtle: #c4c8cb;
-  --bs-success-border-subtle: #a3cfbb;
-  --bs-info-border-subtle: #9eeaf9;
-  --bs-warning-border-subtle: #ffe69c;
-  --bs-danger-border-subtle: #f1aeb5;
-  --bs-light-border-subtle: #e9ecef;
-  --bs-dark-border-subtle: #adb5bd;
-  --bs-white-rgb: 255, 255, 255;
-  --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
-  --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255, 255, 255;
-  --bs-emphasis-color: #000;
-  --bs-emphasis-color-rgb: 0, 0, 0;
-  --bs-secondary-color: rgba(33, 37, 41, 0.75);
-  --bs-secondary-color-rgb: 33, 37, 41;
-  --bs-secondary-bg: #e9ecef;
-  --bs-secondary-bg-rgb: 233, 236, 239;
-  --bs-tertiary-color: rgba(33, 37, 41, 0.5);
-  --bs-tertiary-color-rgb: 33, 37, 41;
-  --bs-tertiary-bg: #f8f9fa;
-  --bs-tertiary-bg-rgb: 248, 249, 250;
-  --bs-heading-color: inherit;
-  --bs-link-color: #0d6efd;
-  --bs-link-color-rgb: 13, 110, 253;
-  --bs-link-decoration: underline;
-  --bs-link-hover-color: #0a58ca;
-  --bs-link-hover-color-rgb: 10, 88, 202;
-  --bs-code-color: #d63384;
-  --bs-highlight-color: #212529;
-  --bs-highlight-bg: #fff3cd;
-  --bs-border-width: 1px;
-  --bs-border-style: solid;
-  --bs-border-color: #dee2e6;
-  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375rem;
-  --bs-border-radius-sm: 0.25rem;
-  --bs-border-radius-lg: 0.5rem;
-  --bs-border-radius-xl: 1rem;
-  --bs-border-radius-xxl: 2rem;
-  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
-  --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --bs-focus-ring-width: 0.25rem;
-  --bs-focus-ring-opacity: 0.25;
-  --bs-focus-ring-color: rgba(13, 110, 253, 0.25);
-  --bs-form-valid-color: #198754;
-  --bs-form-valid-border-color: #198754;
-  --bs-form-invalid-color: #dc3545;
-  --bs-form-invalid-border-color: #dc3545;
-}
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    scroll-behavior: smooth;
-  }
-}
-body {
-  margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
-  line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-}
-h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--bs-heading-color);
-}
-h1 {
-  font-size: calc(1.375rem + 1.5vw);
-}
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-img {
-  vertical-align: middle;
-}
-.container {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 1;
-  width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1320px;
-  }
-}
-:root {
-  --bs-breakpoint-xs: 0;
-  --bs-breakpoint-sm: 576px;
-  --bs-breakpoint-md: 768px;
-  --bs-breakpoint-lg: 992px;
-  --bs-breakpoint-xl: 1200px;
-  --bs-breakpoint-xxl: 1400px;
-}
-.row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-}
-.m-auto {
-  margin: auto !important;
-}
-.text-light {
-  --bs-text-opacity: 1;
-  color: rgba(var(--bs-light-rgb), var(--bs-text-opacity)) !important;
-}
-.bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(
-    var(--bs-primary-rgb),
-    var(--bs-bg-opacity)
-  ) !important;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  line-height: 1.6rem;
-  letter-spacing: 0.004em;
-  color: #958d9e;
-  background: #ededf5;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  background-color: #0b0f1a;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px #191826;
-  background-color: #555;
-}
-.appHeader {
-  height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: env(safe-area-inset-top);
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: #ffffff;
-  color: #27173e;
-  border-bottom: 1px solid #dcdce9;
-}
-.appHeader:before {
-  content: "";
-  height: env(safe-area-inset-top);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 99999;
-  background: #fff;
-}
-.appHeader .left {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
-.appHeader .left {
-  left: 10px;
-  top: 0;
-}
-.appHeader .right {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
-.appHeader .right {
-  right: 10px;
-  top: 0;
-}
-.appHeader .pageTitle {
-  font-size: 17px;
-  font-weight: 500;
-  padding: 0 10px;
-}
-.appHeader.text-light {
-  color: #fff;
-}
-.appHeader.bg-primary {
-  border: 0;
-}
-.appHeader.bg-primary:before {
-  background: #1C1A1D !important;
-}
-.row {
-  margin-left: -8px;
-  margin-right: -8px;
-}
-h1 {
-  color: #27173e;
-  margin: 0 0 10px 0;
-}
-h1 {
-  font-size: 32px;
-  font-weight: 700;
-}
-.bg-primary {
-  background: #1C1A1D !important;
-  color: #fff;
-}
-.text-light {
-  color: #fff !important;
-}
-body.dark-mode {
-  background: #1C1A1D;
-  color: #ffffff;
-}
-body.dark-mode h1 {
-  color: #fff;
-}
-body.dark-mode .appHeader {
-  background: #1C1A1D;
-  color: #fff;
-  border-bottom-color: #00a6e5;
-}
-body.dark-mode .appHeader:before {
-  background: #1C1A1D;
-}
-
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecmNE.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2)
-    format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2)
-    format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-.invert-naranja {
-    filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(1000%);
-}
-
-.button-regresar {
-    background-color: #1C1A1D;
-    color: white;
-    font-size: 18px;
-    border: none; 
-    padding: 10px 20px;
-    cursor: pointer; 
-    border-radius: 5px; 
-    outline: none; 
-}
-
-  </style>
- </head>
- <body class="dark-mode container" oncontextmenu="return false;" ondragstart="return false;" ondrop="return false;" style="user-select: none;">
-  <div class="w3-main w3-content w3-padding" style="max-width:1300px;margin-top:80px">
-   <!-- App Header -->
-   <div class="appHeader bg-primary text-light">
-    <div class="pageTitle">
-     <div class="left">
-      <h3>Sports +</h3>
-     </div>
-     <div class="right">
-      <button onclick="window.location.href='index.html'" class="button-regresar">Regresar</button>
-     </div>
-    </div>
-   </div>
-  </div>
-  <center>
-   <p class="m-auto" style="font-size:20px"><img src="https://i.imgur.com/0dI8VFF.png" width="80"> | Eventos Deportivos</p>
-  </center>
-  <style>
-        .card {
-            position: relative;
-            display: inline-block;
-            margin: 20px;
-            width: 300px;
-            border: 1px solid #342443;
-            border-radius: 8px;
-            overflow: hidden;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Fútbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Fondo de pantalla oscuro */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* Texto en color blanco */
         }
-        .card img {
+
+        #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Distribuir eventos en columnas */
+            gap: 10px; /* Espacio entre eventos */
+            padding: 20px;
+            margin-top: 20px; /* Espacio en la parte superior */
+        }
+
+        .event {
+            background-color: #1e1e1e; /* Color oscuro para el contenedor del evento */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
+            text-align: center;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .event img {
             width: 100%;
             height: auto;
-            display: block;
-            pointer-events: none;
-        }
-        .live {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            background-color: red;
-            color: white;
-            padding: 2px 4px;
             border-radius: 8px;
-            font-size: 14px;
+            margin-bottom: 10px;
         }
-        .finalizado {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            background-color: #190C26;
-            color: white;
-            padding: 2px 4px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .description {
-            padding: 8px;
-            font-size: 14px;
-            color: #fff;
-        }
-        .title {
-            padding: 0 8px 8px;
+
+        .event h2 {
             font-size: 16px;
-            color: #fff;
+            margin: 5px 0;
         }
 
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js"></script>
-  <div id="cards-container"></div>
-  <script>
-    const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json?';
+        .event p {
+            font-size: 14px;
+            color: #aaaaaa; /* Texto gris claro para la descripción */
+            margin: 5px 0;
+        }
 
-    // Función para generar el HTML
-    function generateHtml(data) {
-        const container = document.getElementById('cards-container');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
+        .event a {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
 
-        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
-        const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO') return -1;
-            if (b.status === 'EN VIVO') return 1;
-            if (a.status === 'FINALIZADO') return 1;
-            if (b.status === 'FINALIZADO') return -1;
-            return 0;
+        .event a:hover {
+            background-color: #0056b3;
+        }
+
+        .live-status, .final-status, .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .live-status {
+            background-color: red;
+        }
+
+        .final-status {
+            background-color: gray;
+        }
+
+        .status-badge {
+            background-color: orange; /* Color para el estado antes del evento */
+        }
+
+        /* Hacer que la página permita scroll vertical */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #events-container {
+            flex: 1;
+            overflow-y: auto; /* Permitir scroll vertical */
+        }
+    </style>
+</head>
+<body>
+    <div id="events-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // URL del JSON con proxy para CORS
+            const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json';
+
+            // Obtener datos del JSON
+            fetch(jsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const eventsContainer = document.getElementById('events-container');
+
+                    // Invertir el orden de los eventos
+                    const reversedEvents = data.reverse();
+
+                    // Filtrar y ordenar eventos: En vivo primero, luego "PRONTO", luego finalizados
+                    const sortedEvents = reversedEvents.sort((a, b) => {
+                        const statusA = a.status.toUpperCase();
+                        const statusB = b.status.toUpperCase();
+
+                        if (statusA === 'EN VIVO' && statusB !== 'EN VIVO') {
+                            return -1; // a va antes que b
+                        }
+                        if (statusA !== 'EN VIVO' && statusB === 'EN VIVO') {
+                            return 1; // b va antes que a
+                        }
+                        if (statusA === 'PRONTO' && statusB === 'FINALIZADO') {
+                            return -1; // "PRONTO" va antes que "FINALIZADO"
+                        }
+                        return 0; // No cambiar el orden
+                    });
+
+                    // Generar el HTML para los eventos
+                    sortedEvents.forEach(event => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.className = 'event';
+
+                        const imageUrl = `https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${event.img}/compose?format=webp`;
+                        eventDiv.innerHTML = `
+                            <img src="${imageUrl}" alt="${event.title}">
+                            <h2>${event.title}</h2>
+                            <p>${event.league}</p>
+                        `;
+
+                        // Mostrar el estado del evento
+                        if (event.status.toUpperCase() === 'EN VIVO') {
+                            eventDiv.innerHTML += `<div class="live-status">EN VIVO</div>`;
+                        } else if (event.status.toUpperCase() === 'FINALIZADO') {
+                            eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
+                        } else {
+                            eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
+                        }
+
+                        // Reemplazar y encriptar la URL
+                        const originalUrl = event.url.replace("/embed/eventos/?r=", "");
+                        // Desencriptar la URL original (en Base64)
+                        const decryptedUrl = atob(originalUrl);
+                        // Reemplazar la parte deseada
+                        const newUrl = decryptedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "/dsplayer.html?id=");
+                        // Encriptar en Base64 la nueva URL
+                        const base64Url = btoa(newUrl); // Encriptar en Base64
+                        const fullUrl = `/disney.html?r=${base64Url}`;
+
+                        eventDiv.innerHTML += `<a href="${fullUrl}" target="_blank">Ver Partido</a>`;
+
+                        eventsContainer.appendChild(eventDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar los eventos:', error);
+                });
         });
-
-        sortedData.forEach(item => {
-            let statusHtml = '';
-
-            // Verifica si el valor de status es "EN VIVO"
-            if (item.status === 'EN VIVO') {
-                statusHtml = '<div class="live">EN VIVO</div>';
-            }
-            // Verifica si el valor de status es "FINALIZADO"
-            else if (item.status === 'FINALIZADO') {
-                statusHtml = '<div class="finalizado">FINALIZADO</div>';
-            }
-            // Verifica si el valor de status es una hora en formato 24h (por ejemplo "18:00")
-            else if (/^\d{2}:\d{2}$/.test(item.status)) {
-                try {
-                    const userTimezone = moment.tz.guess(); // Detectar la zona horaria del usuario
-                    const spainTimezone = 'Europe/Madrid'; // Zona horaria de España
-
-                    // Combina la fecha actual con la hora de status del JSON en la zona horaria de España
-                    const currentDate = moment().format('YYYY-MM-DD');
-                    const statusDateTimeSpain = `${currentDate}T${item.status}:00`;
-
-                    // Convertir la hora de la zona horaria de España a la zona horaria del usuario
-                    const statusTime = moment.tz(statusDateTimeSpain, 'YYYY-MM-DDTHH:mm:ss', spainTimezone)
-                                           .tz(userTimezone).format('h:mm a');
-
-                    statusHtml = `<div class="finalizado">HOY | ${statusTime}</div>`;
-                } catch (error) {
-                    console.error('Error al convertir la hora:', error);
-                    statusHtml = `<div class="unknown-status">${item.status}</div>`;
-                }
-            }
-
-            let url = item.url;
-
-            // Si la URL no es "#", realizar las modificaciones
-            if (url !== "#") {
-                let nurl = url.replace("/embed/eventos/?r=", "");
-                nurl = atob(nurl); // Decodificar la URL
-
-                // Realizar ambos reemplazos de URLs
-                if (nurl.includes("//antag.xyz/app/dsplayer.php?id=")) {
-                    nurl = nurl.replace("//antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
-                }
-                else if (nurl.includes("//antag.xyz/app/dsplayer.php?id=")) {
-                    nurl = nurl.replace("//antag.xyz/app/dsplayer.php?id=", "dsplayer.html?id=");
-                }
-
-                let furl = btoa(nurl); // Codificar la nueva URL
-                url = "disney.html?r=" + furl;
-            }
-
-            // HTML para cada tarjeta
-            const cardHtml = `
-                <a href="${url}">
-                    <div class="card">
-                        ${statusHtml}
-                        <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="Disney">
-                        <div class="description">${item.league}</div>
-                        <div class="title">${item.title}</div>
-                    </div>
-                </a>
-            `;
-
-            container.innerHTML += cardHtml;
-        });
-    }
-
-    // Obtener los datos JSON y generar el HTML
-    fetch(jsonUrl)
-        .then(response => response.json())
-        .then(data => generateHtml(data))
-        .catch(error => console.error('Error al cargar el JSON:', error));
-</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8bfb38aa7ff2a4f2',t:'MTcyNTc1OTUzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
- </body>
+    </script>
+</body>
 </html>
