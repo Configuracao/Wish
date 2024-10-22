@@ -757,7 +757,6 @@ body.dark-mode .appHeader:before {
     const jsonUrlVix = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/vix.json';
     const baseUrlReemplazo = '/vixplayer.html?id=';
 
-    // Función para verificar si la cadena está codificada en base64
     function isBase64(str) {
         try {
             return btoa(atob(str)) === str;
@@ -766,17 +765,14 @@ body.dark-mode .appHeader:before {
         }
     }
 
-    // Función para decodificar base64
     function decodeBase64(encodedString) {
         return atob(encodedString);
     }
 
-    // Función para generar el HTML de Vix
     function generateHtmlVix(data) {
         const container = document.getElementById('vix');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
+        container.innerHTML = '';
 
-        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
         const sortedData = data.sort((a, b) => {
             if (a.status === 'EN VIVO') return -1;
             if (b.status === 'EN VIVO') return 1;
@@ -788,33 +784,28 @@ body.dark-mode .appHeader:before {
         sortedData.forEach(item => {
             let statusHtml = '';
 
-            // Verifica si el valor de status es "EN VIVO"
             if (item.status === 'EN VIVO') {
                 statusHtml = '<span class="event-status">VIVO</span>';
-            }
-            // Verifica si el valor de status es "FINALIZADO"
-            else if (item.status === 'FINALIZADO') {
+            } else if (item.status === 'FINALIZADO') {
                 statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            }
-            // Verifica si el valor de status es un número o una hora (en formato "HH:MM")
-            else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                // Convertir la hora de UTC+2 a la zona horaria del cliente
+            } else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
                 const userTimezone = moment.tz.guess();
                 const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
                 statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
             }
 
-            // Verificar si la URL está en base64 y decodificarla si es necesario
             let nuevaUrl = item.url;
             if (isBase64(item.url)) {
                 const decodedUrl = decodeBase64(item.url);
                 nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/jw.php?id=', baseUrlReemplazo);
             }
 
-            // Generar el HTML
+            // Agregar tabindex y eventos focus/blur
             const cardHtml = `
-                <a href="${nuevaUrl}">
-                    <div class="event-card">
+                <a href="${nuevaUrl}" target="_blank">
+                    <div class="event-card" tabindex="0" 
+                         onfocus="this.classList.add('focused')" 
+                         onblur="this.classList.remove('focused')">
                         <img class="background" src="${item.img}" alt="${item.title}">
                         <h2 class="event-title">${item.title}</h2>
                         <h4 class="event-des">${item.description}</h4>
@@ -827,7 +818,6 @@ body.dark-mode .appHeader:before {
         });
     }
 
-    // Función para obtener los datos JSON de Vix y generar el HTML
     function updateVixData() {
         fetch(jsonUrlVix)
             .then(response => response.json())
@@ -835,10 +825,7 @@ body.dark-mode .appHeader:before {
             .catch(error => console.error('Error al cargar el JSON de Vix:', error));
     }
 
-    // Llamar a la función para cargar los datos la primera vez
     updateVixData();
-
-    // Configurar el intervalo para actualizar cada 60 segundos (60000 ms)
     setInterval(updateVixData, 60000);
 })();
 </script>
