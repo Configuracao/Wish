@@ -555,7 +555,16 @@ body.dark-mode .appHeader:before {
   <script>
 (function() {
     const jsonUrlDisney = 'https://api.codetabs.com/v1/proxy/?quest=https://shplus.240025.xyz/disney/full/all.php';
-    const baseUrlReemplazo = '/dsplayer.html?id=';
+    const baseUrlReemplazo = '/vixplayer.html?id=';
+    
+    // Función para verificar si la cadena está codificada en base64
+    function isBase64(str) {
+        try {
+            return btoa(atob(str)) === str;
+        } catch (err) {
+            return false;
+        }
+    }
 
     // Función para decodificar base64
     function decodeBase64(encodedString) {
@@ -746,6 +755,21 @@ body.dark-mode .appHeader:before {
   <script>
 (function() {
     const jsonUrlVix = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/vix.json';
+    const baseUrlReemplazo = '/dsplayer.html?id=';
+
+    // Función para verificar si la cadena está codificada en base64
+    function isBase64(str) {
+        try {
+            return btoa(atob(str)) === str;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    // Función para decodificar base64
+    function decodeBase64(encodedString) {
+        return atob(encodedString);
+    }
 
     // Función para generar el HTML de Vix
     function generateHtmlVix(data) {
@@ -780,8 +804,16 @@ body.dark-mode .appHeader:before {
                 statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
             }
 
+            // Verificar si la URL está en base64 y decodificarla si es necesario
+            let nuevaUrl = item.url;
+            if (isBase64(item.url)) {
+                const decodedUrl = decodeBase64(item.url);
+                nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/jw.php?id=', baseUrlReemplazo);
+            }
+
+            // Generar el HTML
             const cardHtml = `
-                <a href="/application-webview/vix/evento/?r=${item.url}">
+                <a href="${nuevaUrl}">
                     <div class="event-card">
                         <img class="background" src="${item.img}" alt="${item.title}">
                         <h2 class="event-title">${item.title}</h2>

@@ -1,0 +1,76 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <style type="text/css">
+
+body {
+   margin: 0;
+   padding: 0;
+   overflow-y: hidden;
+}
+.jw-settings-sharing, .jw-icon-pip {
+  display: none!important;
+}
+.jw-rightclick, {
+    display: none !important;
+}
+@media (max-width: 600px) {
+  .jwplayer {
+    width: 100%;
+    height: auto;
+  }
+}
+
+</style><!--jw-controls es para quitar live etc etc -->
+  <script type="text/javascript">
+function getParameterByName(name) {
+ name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+ var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+ results = regex.exec(location.search);
+ return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var getID = getParameterByName('id');
+var getIMG = getParameterByName('img');
+</script>
+  <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+  <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+ </head>
+ <body>
+  <div id="player"></div>
+  <script type="text/javascript">
+var playerInstance=jwplayer("player");
+
+var ghttp = new XMLHttpRequest();
+ghttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+ var jsonResponse = JSON.parse(ghttp.responseText);
+  playerInstance.setup({
+   playlist: [{
+   "title": "Sports Max+",
+   "description": "Mirar VIX+ de manera gratuita",
+   "image": getIMG,
+                "sources": [ {
+                    "default": false, "file": jsonResponse['file'], "drm": {
+                        "widevine": {
+                            "url": jsonResponse['lic'],
+                        }
+                    }
+                    , "label": "0", "type": "dash"
+                }
+                ]
+            }
+            ], width: "100%",  height: "100%", autostart: false, cast: {}
+            , sharing: false,
+        }
+        );
+ }
+}
+ghttp.open("GET", "https://shplus.240025.xyz/vix-appli/api/vix.php?id="+getID+"&" + Math.random().toString(36).substring(7), true);
+ghttp.send();
+</script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8d69c9e559c631ce',t:'MTcyOTYwMzI2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ </body>
+</html>
