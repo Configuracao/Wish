@@ -562,20 +562,8 @@ body.dark-mode .appHeader:before {
 </style>
   <script>
 (function() {
-    const jsonUrlDisney = 'https://api.codetabs.com/v1/proxy/?quest=https://shplus.240025.xyz/disney/full/all.php';
+    const jsonUrlDisney = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json';
     const baseUrlReemplazo = '/dsplayer.html?id=';
-
-    function isBase64(str) {
-        try {
-            return btoa(atob(str)) === str;
-        } catch (err) {
-            return false;
-        }
-    }
-
-    function decodeBase64(encodedString) {
-        return atob(encodedString);
-    }
 
     function generateHtmlDisney(data) {
         const container = document.getElementById('disney');
@@ -602,16 +590,15 @@ body.dark-mode .appHeader:before {
                 statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
             }
 
-            const decodedUrl = decodeBase64(item.url);
-            const nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/disney/full/play.html?id=', baseUrlReemplazo);
+            // Usar el ID directamente para construir la nueva URL
+            const nuevaUrl = baseUrlReemplazo + item.id;
 
-            // Agregar tabindex y eventos focus/blur
             const cardHtml = `
                 <a href="${nuevaUrl}" target="_blank">
                     <div class="event-card" tabindex="0" 
                          onfocus="this.classList.add('focused')" 
                          onblur="this.classList.remove('focused')">
-                        <img class="background" src="${item.img}" alt="${item.title}">
+                        <img class="background" src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="${item.title}">
                         <h2 class="event-title">${item.title}</h2>
                         ${statusHtml}
                     </div>
