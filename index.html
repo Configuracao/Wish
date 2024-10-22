@@ -551,13 +551,20 @@ body.dark-mode .appHeader:before {
         -ms-overflow-style: none;  /* Ocultar el scrollbar en IE y Edge */
         scrollbar-width: none;  /* Ocultar el scrollbar en Firefox */
     }
+    
+    .event-card {
+    transition: background-color 0.3s;
+}
+
+.event-card.focused {
+    background-color: rgba(255, 255, 0, 0.5); /* Color de fondo al enfocarse */
+}
 </style>
   <script>
 (function() {
     const jsonUrlDisney = 'https://api.codetabs.com/v1/proxy/?quest=https://shplus.240025.xyz/disney/full/all.php';
     const baseUrlReemplazo = '/dsplayer.html?id=';
-    
-    // Función para verificar si la cadena está codificada en base64
+
     function isBase64(str) {
         try {
             return btoa(atob(str)) === str;
@@ -566,17 +573,14 @@ body.dark-mode .appHeader:before {
         }
     }
 
-    // Función para decodificar base64
     function decodeBase64(encodedString) {
         return atob(encodedString);
     }
 
-    // Función para generar el HTML de Disney
     function generateHtmlDisney(data) {
         const container = document.getElementById('disney');
-        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
+        container.innerHTML = '';
 
-        // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
         const sortedData = data.sort((a, b) => {
             if (a.status === 'EN VIVO') return -1;
             if (b.status === 'EN VIVO') return 1;
@@ -588,28 +592,25 @@ body.dark-mode .appHeader:before {
         sortedData.forEach(item => {
             let statusHtml = '';
 
-            // Verifica si el valor de status es "EN VIVO"
             if (item.status === 'EN VIVO') {
                 statusHtml = '<span class="event-status">VIVO</span>';
-            }
-            // Verifica si el valor de status es "FINALIZADO"
-            else if (item.status === 'FINALIZADO') {
+            } else if (item.status === 'FINALIZADO') {
                 statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            }
-            // Verifica si el valor de status es un número o una hora (en formato "HH:MM")
-            else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
+            } else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
                 const userTimezone = moment.tz.guess();
                 const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
                 statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
             }
 
-            // Decodificar URL en base64 y reemplazar la URL base
             const decodedUrl = decodeBase64(item.url);
             const nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/disney/full/play.html?id=', baseUrlReemplazo);
 
+            // Agregar tabindex y eventos focus/blur
             const cardHtml = `
-                <a href="${nuevaUrl}">
-                    <div class="event-card">
+                <a href="${nuevaUrl}" target="_blank">
+                    <div class="event-card" tabindex="0" 
+                         onfocus="this.classList.add('focused')" 
+                         onblur="this.classList.remove('focused')">
                         <img class="background" src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/${item.img}/scale?width=500&aspectRatio=1.78&format=jpeg" alt="${item.title}">
                         <h2 class="event-title">${item.title}</h2>
                         ${statusHtml}
@@ -620,18 +621,17 @@ body.dark-mode .appHeader:before {
         });
     }
 
-    // Función para obtener los datos JSON de Disney y generar el HTML
     function updateDisneyData() {
         fetch(jsonUrlDisney)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
             .then(data => generateHtmlDisney(data))
             .catch(error => console.error('Error al cargar el JSON de Disney:', error));
     }
 
-    // Llamar a la función para cargar los datos la primera vez
     updateDisneyData();
-
-    // Configurar el intervalo para actualizar cada 60 segundos (60000 ms)
     setInterval(updateDisneyData, 60000);
 })();
 </script>
@@ -980,7 +980,7 @@ body.dark-mode .appHeader:before {
 
             // Función para generar el HTML de Disney Plus
             function generateHtmlDisney(data) {
-                const container = document.getElementById('disneyplus');
+                const container = document.getElementById('caliente-tv');
                 container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
 
                 // Ordenar los datos: EN VIVO, luego los que no han comenzado, luego FINALIZADO
