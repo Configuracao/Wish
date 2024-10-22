@@ -445,7 +445,7 @@ body.dark-mode .appHeader:before {
       <h3>SportsHub+</h3>
      </div>
      <div class="right">
-      <button onclick="window.location.href='/application-webview/inicio/'" class="button-regresar">Recargar</button> <button onclick="window.location.href='/application-webview/epg/'" class="button-regresar">GuiaTV</button>
+      <button onclick="window.location.href='/application-webview/inicio/'" class="button-regresar">Recargar</button>
      </div>
     </div>
    </div>
@@ -554,30 +554,16 @@ body.dark-mode .appHeader:before {
 </style>
   <script>
 (function() {
-    const jsonUrlDisneyPlus = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json?';
+    const jsonUrlDisney = 'https://api.codetabs.com/v1/proxy/?quest=https://shplus.240025.xyz/disney/full/all.php';
+    const baseUrlReemplazo = '/dsplayer.html?id=';
 
     // Función para decodificar base64
-    function decodeBase64(encodedStr) {
-        try {
-            return atob(encodedStr);
-        } catch (e) {
-            console.error("Error al decodificar base64:", e);
-            return encodedStr;
-        }
+    function decodeBase64(encodedString) {
+        return atob(encodedString);
     }
 
-    // Función para codificar base64
-    function encodeBase64(decodedStr) {
-        try {
-            return btoa(decodedStr);
-        } catch (e) {
-            console.error("Error al codificar base64:", e);
-            return decodedStr;
-        }
-    }
-
-    // Función para generar el HTML de Disney Plus
-    function generateHtmlDisneyPlus(data) {
+    // Función para generar el HTML de Disney
+    function generateHtmlDisney(data) {
         const container = document.getElementById('disney');
         container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevo contenido
 
@@ -593,41 +579,31 @@ body.dark-mode .appHeader:before {
         sortedData.forEach(item => {
             let statusHtml = '';
 
+            // Verifica si el valor de status es "EN VIVO"
             if (item.status === 'EN VIVO') {
-                statusHtml = '<div class="live">EN VIVO</div>';
-            } else if (item.status === 'FINALIZADO') {
-                statusHtml = '<div class="finalizado">FINALIZADO</div>';
-            } else if (/^\d{2}:\d{2}$/.test(item.statusstart)) {
-                const userTimezone = 'America/Mexico_City'; // Definir la zona horaria de México
-
-                // Convertir las horas de statusstart y statusfin (asumiendo que están en UTC) a la hora local de México
-                const statusStartTime = moment.tz(item.statusstart, 'hh:mm A', 'America/Mexico_City').format('hh:mm A');
-                const statusEndTime = moment.tz(item.statusfin, 'hh:mm A', 'America/Mexico_City').format('hh:mm A');
-
-                statusHtml = `<div class="programacion">HOY | ${statusStartTime} - ${statusEndTime}</div>`;
+                statusHtml = '<span class="event-status">VIVO</span>';
+            }
+            // Verifica si el valor de status es "FINALIZADO"
+            else if (item.status === 'FINALIZADO') {
+                statusHtml = '<span class="event-fina">FINALIZADO</span>';
+            }
+            // Verifica si el valor de status es un número o una hora (en formato "HH:MM")
+            else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
+                const userTimezone = moment.tz.guess();
+                const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
+                statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
             }
 
-            // Decodificar la URL en base64
-            let decodedUrl = decodeBase64(item.url);
-
-            // Reemplazar la parte de la URL que necesitas
-            decodedUrl = decodedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "/dsplayer.html?id=");
-            
-            // También reemplazar /embed/eventos/?r= por /eventos.html?r=
-            decodedUrl = decodedUrl.replace("/embed/eventos/?r=", "/disney.html?r=");
-
-            // Codificar la URL nuevamente, si lo necesitas en base64, puedes usar encodeBase64(decodedUrl);
-            // Si no necesitas que esté en base64, puedes dejarla como `decodedUrl`.
-
-            const imgUrl = `https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp`; // Ajusta la ruta si es necesario
+            // Decodificar URL en base64 y reemplazar la URL base
+            const decodedUrl = decodeBase64(item.url);
+            const nuevaUrl = decodedUrl.replace('https://shplus.240025.xyz/disney/full/play.html?id=', baseUrlReemplazo);
 
             const cardHtml = `
-                <a href="${decodedUrl}">
-                    <div class="card">
+                <a href="${nuevaUrl}">
+                    <div class="event-card">
+                        <img class="background" src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/${item.img}/scale?width=500&aspectRatio=1.78&format=jpeg" alt="${item.title}">
+                        <h2 class="event-title">${item.title}</h2>
                         ${statusHtml}
-                        <img src="${imgUrl}" alt="Disney Plus">
-                        <div class="description">${item.league}</div>
-                        <div class="title">${item.title}</div>
                     </div>
                 </a>
             `;
@@ -635,11 +611,19 @@ body.dark-mode .appHeader:before {
         });
     }
 
-    // Obtener los datos JSON de Disney Plus y generar el HTML
-    fetch(jsonUrlDisneyPlus)
-        .then(response => response.json())
-        .then(data => generateHtmlDisneyPlus(data))
-        .catch(error => console.error('Error al cargar el JSON de Disney Plus:', error));
+    // Función para obtener los datos JSON de Disney y generar el HTML
+    function updateDisneyData() {
+        fetch(jsonUrlDisney)
+            .then(response => response.json())
+            .then(data => generateHtmlDisney(data))
+            .catch(error => console.error('Error al cargar el JSON de Disney:', error));
+    }
+
+    // Llamar a la función para cargar los datos la primera vez
+    updateDisneyData();
+
+    // Configurar el intervalo para actualizar cada 60 segundos (60000 ms)
+    setInterval(updateDisneyData, 60000);
 })();
 </script>
   <style>
