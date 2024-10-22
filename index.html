@@ -562,49 +562,64 @@ body.dark-mode .appHeader:before {
 </style>
   <script>
 (function() {
-    const jsonUrlDisney = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json';
+    const jsonUrlDisney = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json'; // Verifica que esta URL sea correcta
     const baseUrlReemplazo = '/dsplayer.html?id=';
+
+    function isBase64(str) {
+        try {
+            return btoa(atob(str)) === str;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    function decodeBase64(encodedString) {
+        return atob(encodedString);
+    }
 
     function generateHtmlDisney(data) {
         const container = document.getElementById('disney');
-        container.innerHTML = '';
+        container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos eventos
 
+        // Ordenar los datos
         const sortedData = data.sort((a, b) => {
-            if (a.status === 'EN VIVO') return -1;
-            if (b.status === 'EN VIVO') return 1;
-            if (a.status === 'FINALIZADO') return 1;
-            if (b.status === 'FINALIZADO') return -1;
-            return 0;
+            if (a.status === 'EN VIVO' && b.status !== 'EN VIVO') return -1; // a va antes que b
+            if (b.status === 'EN VIVO' && a.status !== 'EN VIVO') return 1;  // b va antes que a
+            if (a.status === 'FINALIZADO' && b.status !== 'FINALIZADO') return 1; // a va después de b
+            if (b.status === 'FINALIZADO' && a.status !== 'FINALIZADO') return -1; // b va después de a
+            return 0; // Mantener el orden original para otros estados
         });
 
+        // Generar el HTML de los eventos
         sortedData.forEach(item => {
             let statusHtml = '';
 
+            // Mostrar el estado del evento
             if (item.status === 'EN VIVO') {
                 statusHtml = '<span class="event-status">VIVO</span>';
             } else if (item.status === 'FINALIZADO') {
                 statusHtml = '<span class="event-fina">FINALIZADO</span>';
-            } else if (/^\d{2}:\d{2}$/.test(item.status) || !isNaN(parseInt(item.status))) {
-                const userTimezone = moment.tz.guess();
-                const statusTime = moment.tz(item.status, 'HH:mm', 'America/Mexico_City').tz(userTimezone).format('HH:mm');
-                statusHtml = `<span class="event-fina">HOY | ${statusTime}</span>`;
+            } else {
+                statusHtml = `<span class="event-fina">HOY | ${item.statusstart}</span>`;
             }
 
-            // Usar el ID directamente para construir la nueva URL
-            const nuevaUrl = baseUrlReemplazo + item.id;
+            // Desencriptar la URL
+            const decodedUrl = decodeBase64(item.url.split('=')[1]); // Extraer el parámetro encriptado y desencriptarlo
+            const nuevaUrl = `/dsplayer.html?id=${decodedUrl.replace('//antag.xyz/app/dsplayer.php?id=', '')}`; // Reemplazar y crear la nueva URL
 
+            // Crear el HTML de la tarjeta
             const cardHtml = `
                 <a href="${nuevaUrl}" target="_blank">
                     <div class="event-card" tabindex="0" 
                          onfocus="this.classList.add('focused')" 
                          onblur="this.classList.remove('focused')">
-                        <img class="background" src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="${item.title}">
+                        <img class="background" src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${item.img}/compose?format=webp" alt="${item.title}"> <!-- Asegúrate de que la URL de la imagen sea válida -->
                         <h2 class="event-title">${item.title}</h2>
                         ${statusHtml}
                     </div>
                 </a>
             `;
-            container.innerHTML += cardHtml;
+            container.innerHTML += cardHtml; // Agregar cada tarjeta al contenedor
         });
     }
 
@@ -614,12 +629,15 @@ body.dark-mode .appHeader:before {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.json();
             })
-            .then(data => generateHtmlDisney(data))
+            .then(data => {
+                console.log("Datos cargados:", data); // Para verificar los datos
+                generateHtmlDisney(data);
+            })
             .catch(error => console.error('Error al cargar el JSON de Disney:', error));
     }
 
     updateDisneyData();
-    setInterval(updateDisneyData, 60000);
+    setInterval(updateDisneyData, 60000); // Actualizar cada 60 segundos
 })();
 </script>
   <style>
