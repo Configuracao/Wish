@@ -59,7 +59,8 @@
             margin-top: 10px;
         }
 
-        .event a:hover {
+        .event a:hover,
+        .event a:focus {
             background-color: #0056b3;
         }
 
@@ -99,6 +100,12 @@
         #events-container {
             flex: 1;
             overflow-y: auto; /* Permitir scroll vertical */
+        }
+
+        /* Estilo para elementos que reciben foco */
+        .event a:focus {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -167,8 +174,14 @@
                         const base64Url = btoa(newUrl); // Encriptar en Base64
                         const fullUrl = `/disney.html?r=${base64Url}`;
 
-                        eventDiv.innerHTML += `<a href="${fullUrl}" target="_blank">Ver Partido</a>`;
+                        // Añadir el enlace con tabindex para control remoto
+                        const link = document.createElement('a');
+                        link.href = fullUrl;
+                        link.textContent = 'Ver Partido';
+                        link.target = "_blank";
+                        link.tabIndex = 0; // Atributo para permitir enfoque
 
+                        eventDiv.appendChild(link);
                         eventsContainer.appendChild(eventDiv);
                     });
                 })
