@@ -100,6 +100,11 @@
             flex: 1;
             overflow-y: auto;
         }
+        /* Estilo para elementos que reciben foco */
+        .event a:focus {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
@@ -173,14 +178,23 @@
                 });
         });
 
-        // Manejo del control remoto para desplazarse con las flechas
+        // Detectar teclas de navegación para Android TV
         document.addEventListener('keydown', function(event) {
-            const key = event.key;
-            
-            if (key === 'ArrowDown') {
-                window.scrollBy(0, 100); // Desplazarse hacia abajo
-            } else if (key === 'ArrowUp') {
-                window.scrollBy(0, -100); // Desplazarse hacia arriba
+            const activeElement = document.activeElement;
+            const events = document.querySelectorAll('.event a');
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex < events.length - 1) {
+                    events[currentIndex + 1].focus(); // Enfocar el siguiente enlace
+                }
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex > 0) {
+                    events[currentIndex - 1].focus(); // Enfocar el enlace anterior
+                }
             }
         });
     </script>
