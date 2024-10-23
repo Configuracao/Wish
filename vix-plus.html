@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Fútbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Fondo de pantalla oscuro */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* Texto en color blanco */
+        }
+
+        #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Distribuir eventos en columnas */
+            gap: 10px; /* Espacio entre eventos */
+            padding: 20px;
+            margin-top: 20px; /* Espacio en la parte superior */
+        }
+
+        .event {
+            background-color: #1e1e1e; /* Color oscuro para el contenedor del evento */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
+            text-align: center;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .event img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .event h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .event p {
+            font-size: 14px;
+            color: #aaaaaa; /* Texto gris claro para la descripción */
+            margin: 5px 0;
+        }
+
+        .event a {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .event a:hover {
+            background-color: #0056b3;
+        }
+
+        .live-status, .final-status, .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .live-status {
+            background-color: red;
+        }
+
+        .final-status {
+            background-color: gray;
+        }
+
+        .status-badge {
+            background-color: orange; /* Color para el estado antes del evento */
+        }
+
+        /* Hacer que la página permita scroll vertical */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #events-container {
+            flex: 1;
+            overflow-y: auto; /* Permitir scroll vertical */
+        }
+    </style>
+</head>
+<body>
+    <div id="events-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // URL del JSON
+    const jsonUrl = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/vix.json';
+
+    // Obtener datos del JSON
+    fetch(jsonUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la red: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const eventsContainer = document.getElementById('events-container');
+
+            // Comprobar si hay datos
+            if (!Array.isArray(data) || data.length === 0) {
+                eventsContainer.innerHTML = '<p>No hay eventos disponibles.</p>';
+                return;
+            }
+
+            // Ordenar los eventos
+            data.sort((a, b) => {
+                const statusOrder = {
+                    'EN VIVO': 1,
+                    'PRÓXIMAMENTE': 2,
+                    'FINALIZADO': 3
+                };
+                return (statusOrder[a.status.toUpperCase()] || 4) - (statusOrder[b.status.toUpperCase()] || 4);
+            });
+
+            // Generar el HTML para los eventos
+            data.forEach(event => {
+                const eventDiv = document.createElement('div');
+                eventDiv.className = 'event';
+
+                // Desencriptar la URL Base64
+                let eventUrl;
+                try {
+                    const decryptedUrl = atob(event.url); // Desencriptar URL
+                    // Reemplazar la parte encriptada
+                    eventUrl = decryptedUrl.replace(/https:\/\/shplus\.240025\.xyz\/jw\.php\?id=/, '/vixplayer.html?id=');
+                } catch (error) {
+                    console.error('Error al desencriptar la URL:', error);
+                    eventUrl = '#'; // En caso de error, usar un enlace de reserva
+                }
+
+                const imageUrl = event.img; // Usar la imagen proporcionada en el JSON
+                eventDiv.innerHTML = `
+                    <img src="${imageUrl}" alt="${event.title}">
+                    <h2>${event.title}</h2>
+                    <p>${event.description}</p>
+                    
+                `;
+
+                // Mostrar el estado del evento
+                if (event.status.toUpperCase() === 'EN VIVO') {
+                    eventDiv.innerHTML += `<div class="live-status">EN VIVO</div>`;
+                } else if (event.status.toUpperCase() === 'FINALIZADO') {
+                    eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
+                } else {
+                    eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
+                }
+
+                // Enlace para ver el evento
+                eventDiv.innerHTML += `<a href="${eventUrl}" target="_blank">Ver Partido</a>`;
+                eventsContainer.appendChild(eventDiv);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar los eventos:', error);
+            const eventsContainer = document.getElementById('events-container');
+            eventsContainer.innerHTML = '<p>Error al cargar eventos. Intenta de nuevo más tarde.</p>';
+        });
+});
+    </script>
+</body>
+</html>
