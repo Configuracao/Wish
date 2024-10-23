@@ -62,6 +62,8 @@
         .event a:hover,
         .event a:focus {
             background-color: #0056b3;
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
         }
 
         .live-status, .final-status, .status-badge {
@@ -166,20 +168,16 @@
 
                         // Reemplazar y encriptar la URL
                         const originalUrl = event.url.replace("/embed/eventos/?r=", "");
-                        // Desencriptar la URL original (en Base64)
                         const decryptedUrl = atob(originalUrl);
-                        // Reemplazar la parte deseada
                         const newUrl = decryptedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "/dsplayer.html?id=");
-                        // Encriptar en Base64 la nueva URL
-                        const base64Url = btoa(newUrl); // Encriptar en Base64
+                        const base64Url = btoa(newUrl); 
                         const fullUrl = `/disney.html?r=${base64Url}`;
 
-                        // Añadir el enlace con tabindex para control remoto
                         const link = document.createElement('a');
                         link.href = fullUrl;
                         link.textContent = 'Ver Partido';
                         link.target = "_blank";
-                        link.tabIndex = 0; // Atributo para permitir enfoque
+                        link.tabIndex = 0; // Para que sea navegable por control remoto
 
                         eventDiv.appendChild(link);
                         eventsContainer.appendChild(eventDiv);
@@ -188,6 +186,26 @@
                 .catch(error => {
                     console.error('Error al cargar los eventos:', error);
                 });
+        });
+
+        // Detectar teclas de navegación para Android TV
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const events = document.querySelectorAll('.event a');
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex < events.length - 1) {
+                    events[currentIndex + 1].focus(); // Enfocar el siguiente enlace
+                }
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex > 0) {
+                    events[currentIndex - 1].focus(); // Enfocar el enlace anterior
+                }
+            }
         });
     </script>
 </body>
