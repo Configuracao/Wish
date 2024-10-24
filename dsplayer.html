@@ -336,9 +336,8 @@ body {
        var playerInstance = jwplayer("player");
        playerInstance.setup({
            playlist: [{
-           "title": "Sports Max+",
-   "description": "Mirar Disney+ de manera gratuita",
-               
+               "title": "Sports Max+",
+               "description": "Mirar Disney+ de manera gratuita",
                "image": imageUrl,
                "sources": [
                    {
@@ -354,9 +353,29 @@ body {
            }],
            width: "100%",
            height: "100vh",
-           stretching : "exactfit",
+           stretching: "exactfit",
            autostart: false,
        });
+
+       // Agregar el botón de adelantar 10 segundos
+       const forwardButton = document.createElement('button');
+       forwardButton.innerText = 'Adelantar 10s';
+       forwardButton.style.position = 'absolute';
+       forwardButton.style.bottom = '20px';
+       forwardButton.style.right = '20px';
+       forwardButton.style.zIndex = '1000';
+       forwardButton.style.padding = '10px';
+       forwardButton.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+       forwardButton.style.color = 'white';
+       forwardButton.style.border = 'none';
+       forwardButton.style.cursor = 'pointer';
+
+       forwardButton.addEventListener('click', function() {
+           var currentPosition = playerInstance.getPosition();
+           playerInstance.seek(currentPosition + 10); // Adelanta 10 segundos
+       });
+
+       document.body.appendChild(forwardButton);
    }
 
    document.addEventListener("DOMContentLoaded", function() {
