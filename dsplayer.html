@@ -355,27 +355,19 @@ body {
            height: "100vh",
            stretching: "exactfit",
            autostart: false,
+           controls: true
        });
 
-       // Agregar el botón de adelantar 10 segundos
-       const forwardButton = document.createElement('button');
-       forwardButton.innerText = 'Adelantar 10s';
-       forwardButton.style.position = 'absolute';
-       forwardButton.style.bottom = '20px';
-       forwardButton.style.right = '20px';
-       forwardButton.style.zIndex = '1000';
-       forwardButton.style.padding = '10px';
-       forwardButton.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-       forwardButton.style.color = 'white';
-       forwardButton.style.border = 'none';
-       forwardButton.style.cursor = 'pointer';
-
-       forwardButton.addEventListener('click', function() {
-           var currentPosition = playerInstance.getPosition();
-           playerInstance.seek(currentPosition + 10); // Adelanta 10 segundos
-       });
-
-       document.body.appendChild(forwardButton);
+       // Añadir botón personalizado para adelantar 10 segundos
+       playerInstance.addButton(
+           "https://icon-library.com/images/forward-icon/forward-icon-13.jpg", // URL del icono del botón
+           "Adelantar 10 segundos", // Texto del botón
+           function() {
+               var currentPosition = playerInstance.getPosition();
+               playerInstance.seek(currentPosition + 10); // Adelanta 10 segundos
+           },
+           "forward" // ID único para el botón
+       );
    }
 
    document.addEventListener("DOMContentLoaded", function() {
