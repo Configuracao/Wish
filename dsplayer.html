@@ -360,13 +360,24 @@ body {
 
        // Añadir botón personalizado para adelantar 10 segundos
        playerInstance.addButton(
-           "https://icon-library.com/images/forward-icon/forward-icon-13.jpg", // URL del icono del botón
-           "Adelantar 10 segundos", // Texto del botón
+           "https://icon-library.com/images/forward-icon/forward-icon-13.jpg", // URL del icono del botón de adelantar
+           "Adelantar 10 segundos", // Texto del botón de adelantar
            function() {
                var currentPosition = playerInstance.getPosition();
                playerInstance.seek(currentPosition + 10); // Adelanta 10 segundos
            },
-           "forward" // ID único para el botón
+           "forward" // ID único para el botón de adelantar
+       );
+
+       // Añadir botón personalizado para retroceder 10 segundos
+       playerInstance.addButton(
+           "https://icon-library.com/images/back-icon-png/back-icon-png-29.jpg", // URL del icono del botón de retroceder
+           "Retroceder 10 segundos", // Texto del botón de retroceder
+           function() {
+               var currentPosition = playerInstance.getPosition();
+               playerInstance.seek(currentPosition - 10); // Retrocede 10 segundos
+           },
+           "rewind" // ID único para el botón de retroceder
        );
    }
 
