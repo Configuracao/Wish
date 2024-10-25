@@ -358,6 +358,7 @@ var playerInstance = jwplayer("player");
 
 playerInstance.setup({
     playlist: [{
+        "image": getIMG,
         "sources": [{
             "default": true,
             "type": "dash",
@@ -382,31 +383,22 @@ playerInstance.setup({
 
 var mpdURL = getURL;
 
-var lang = 2;
+var lang = 3;
 
-if (
-    mpdURL.indexOf("https://live1-ott.izzigo.tv/") ||
-    mpdURL.indexOf("https://live4-ott.izzigo.tv/") ||
-    mpdURL.indexOf("https://live5-ott.izzigo.tv/") ||
-    mpdURL.indexOf("https://live6-ott.izzigo.tv/") ||
-    mpdURL.indexOf("https://live7-ott.izzigo.tv/") ||
-    mpdURL.indexOf("https://live8-ott.izzigo.tv/")
-) {
+if (mpdURL.indexOf("https://live1-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live2-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live3-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live4-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live5-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live6-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live7-ott.izzigo.tv/") === 0 ||
+    mpdURL.indexOf("https://live8-ott.izzigo.tv/") === 0) {
     lang = 2;
 } else if (
-    mpdURL.indexOf("https://live3-ott.izzigo.tv/out/u/dash/SKY-SPORTS-HD/default.mpd") ||
-    mpdURL.indexOf("https://live2-ott.izzigo.tv/out/u/dash/SKYSPORTS-16-HD/manifest.mpd") ||
-    mpdURL.indexOf("https://live3-ott.izzigo.tv/out/u/dash/SKYSPORTS-21-HD/manifest.mpd") ||
-    mpdURL.indexOf("https://live-atv-cdn.izzigo.tv/5/out/u/dash/SKY-SPORTS-24-HD/manifest.mpd")
-) {
-    lang = 3;
-} else if (
-    mpdURL.indexOf("https://dish.akamaized.net/") ||
-    mpdURL.indexOf("https://cdn-lumen01.sensa.com.ar/")
-) {
+    mpdURL.indexOf("https://dish.akamaized.net/") === 0 ||
+    mpdURL.indexOf("https://cdn-lumen01.sensa.com.ar/") === 0) {
     lang = 1;
 }
-
 
 console.log(lang); 
 
@@ -415,6 +407,6 @@ jwplayer().on('play', function(e) {
 });
 
 </script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8d6e314699d58da2',t:'MTcyOTY0OTQ0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8d84941b8ca18da9',t:'MTcyOTg4NDE3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
  </body>
 </html>
