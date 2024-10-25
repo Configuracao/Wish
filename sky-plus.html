@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Fútbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+
+        #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .event {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .event img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .event h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .event p {
+            font-size: 14px;
+            color: #aaaaaa;
+            margin: 5px 0;
+        }
+
+        .event a {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .event a:hover {
+            background-color: #0056b3;
+        }
+
+        .live-status, .final-status, .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .live-status {
+            background-color: red;
+        }
+
+        .final-status {
+            background-color: gray;
+        }
+
+        .status-badge {
+            background-color: orange;
+        }
+
+        html, body {
+            height: 100%;
+            scroll-behavior: smooth; /* Scroll suave */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #events-container {
+            flex: 1;
+            overflow-y: auto;
+        }
+        /* Estilo para elementos que reciben foco */
+        .event a:focus {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="events-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const jsonUrl = 'https://corsproxy.io/?url=https://shplus.240025.xyz/vix-appli/json/skysports/sky.json';
+
+            fetch(jsonUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const eventsContainer = document.getElementById('events-container');
+
+                    if (!Array.isArray(data) || data.length === 0) {
+                        eventsContainer.innerHTML = '<p>No hay eventos disponibles.</p>';
+                        return;
+                    }
+
+                    data.sort((a, b) => {
+                        const statusOrder = {
+                            'EN VIVO': 1,
+                            'PRÓXIMAMENTE': 2,
+                            'FINALIZADO': 3
+                        };
+                        return (statusOrder[a.status.toUpperCase()] || 4) - (statusOrder[b.status.toUpperCase()] || 4);
+                    });
+
+                    data.forEach(event => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.className = 'event';
+                        
+                        let eventUrl;
+                        try {
+                            const decryptedUrl = atob(event.url);
+                            eventUrl = decryptedUrl.replace("https://shplus.240025.xyz/c-tv.html?get=", "/gg50.html?get=");
+                        } catch (error) {
+                            console.error('Error al desencriptar la URL:', error);
+                            eventUrl = '#';
+                        }
+
+                        const imageUrl = event.img;
+                        eventDiv.innerHTML = `
+                            <img src="${imageUrl}" alt="${event.title}">
+                            <h2>${event.title}</h2>
+                            <p>${event.description}</p>
+                            <p>Fecha: ${event.fecha}</p>
+                        `;
+
+                        if (event.status.toUpperCase() === 'EN VIVO') {
+                            eventDiv.innerHTML += `<div class="live-status">EN VIVO</div>`;
+                        } else if (event.status.toUpperCase() === 'FINALIZADO') {
+                            eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
+                        } else {
+                            eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
+                        }
+
+                        eventDiv.innerHTML += `<a href="${eventUrl}" target="_blank" tabindex="0">Ver Partido</a>`;
+                        eventsContainer.appendChild(eventDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar los eventos:', error);
+                    const eventsContainer = document.getElementById('events-container');
+                    eventsContainer.innerHTML = '<p>Error al cargar eventos. Intenta de nuevo más tarde.</p>';
+                });
+        });
+
+        // Detectar teclas de navegación para Android TV
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const events = document.querySelectorAll('.event a');
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex < events.length - 1) {
+                    events[currentIndex + 1].focus(); // Enfocar el siguiente enlace
+                }
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex > 0) {
+                    events[currentIndex - 1].focus(); // Enfocar el enlace anterior
+                }
+            }
+        });
+    </script>
+</body>
+</html>
