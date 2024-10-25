@@ -1,0 +1,31 @@
+[
+  {
+    "img": "6bc5e8be-fff1-4bdf-affb-07e19a3dae30",
+    "nombre": "1",
+    "k1": "cb004fb100bd92f23793562891e3236b",
+    "k2": "b3e4e74ae2080b137e68bbd0ef8a7e05",
+    "url": "https://vcdn.mn10.entel.bo/Content/DASH/Live/Channel(8757cb0a-3584-40cd-901e-8937c7deba83)/master.mpd"
+  },
+  {
+    "img": "16dfd4d5-7a23-4f2f-b06b-2d2d6aa4d962",
+    "nombre": "2",
+    "k1": "bc1548b44fcc4e62a02d899f8eab9a87",
+    "k2": "43a003b338e5d9af7e0e237ef4dc85f7",
+    "url": "https://live-ftc-sa-west-1.media.dssott.com/dvt2=exp=1729209336~url=%2Fclt2%2Fva01%2Fdisneyplus%2Fevent%2F2024%2F10%2F17%2FLos_Angeles_Dodgers_vs_Ne_20241017_1729116005028%2F~psid=a4295320-d4ce-4ed8-94e5-bd7d7b5dc299~aid=7069030b-6909-441f-9ece-7490e1dc2186~did=b905d104-6285-4d56-9183-0d35f2cfe05b~kid=k02~hmac=a83f00cc3fb9ad1159180478982b0a07c0431af0e9e7b2dad3b14c4695b0868f/clt2/va01/disneyplus/event/2024/10/17/Los_Angeles_Dodgers_vs_Ne_20241017_1729116005028/ctr-all-complete.m3u8"
+  },
+  {
+    "img": "6095bdf2-8ebb-48d3-80ac-1ed1344fc6c2",
+    "nombre": "3",
+    "k1": "bc1548b44fcc4e62a02d899f8eab9a87",
+    "k2": "43a003b338e5d9af7e0e237ef4dc85f7",
+    "url": "https://live-ftc-sa-west-1.media.dssott.com/dvt2=exp=1729209336~url=%2Fclt2%2Fva01%2Fdisneyplus%2Fevent%2F2024%2F10%2F17%2FLos_Angeles_Dodgers_vs_Ne_20241017_1729116005028%2F~psid=a4295320-d4ce-4ed8-94e5-bd7d7b5dc299~aid=7069030b-6909-441f-9ece-7490e1dc2186~did=b905d104-6285-4d56-9183-0d35f2cfe05b~kid=k02~hmac=a83f00cc3fb9ad1159180478982b0a07c0431af0e9e7b2dad3b14c4695b0868f/clt2/va01/disneyplus/event/2024/10/17/Los_Angeles_Dodgers_vs_Ne_20241017_1729116005028/ctr-all-complete.m3u8"
+  },
+  {
+    "img": "0a99e555-8fe7-4e01-b034-b2562539cddc",
+    "nombre": "4",
+    "k1": "bc1548b44fcc4e62a02d899f8eab9a87",
+    "k2": "43a003b338e5d9af7e0e237ef4dc85f7",
+    "url": "https://live-ftc-sa-west-1.media.dssott.com/dvt2=exp=1729209336~url=%2Fclt2%2Fva01%2Fdisneyplus%2Fevent%2F2024%2F10%2F17%2FLos_Angeles_Dodgers_vs_Ne_20241017_1729116005028%2F~psid=a4295320-d4ce-4ed8-94e5-bd7d7b5dc299~aid=7069030b-6909-441f-9ece-7490e1dc2186~did=b905d104-6285-4d56-9183-0d35f2cfe05b~kid=k02~hmac=a83f00cc3fb9ad1159180478982b0a07c0431af0e9e7b2dad3b14c4695b0868f/clt2/va01/disneyplus/event/2024/10/17/Los_Angeles_Dodgers_vs_Ne_20241017_1729116005028/ctr-all-complete.m3u8"
+  }
+  
+]
