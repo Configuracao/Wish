@@ -28,13 +28,13 @@ body {
    }
 
    function setupPlayer(jsonData) {
-       var imageUrl = "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/" + jsonData.img + "/compose";
+       var imageUrl = "";
 
        var playerInstance = jwplayer("player");
        playerInstance.setup({
            playlist: [{
                "title": "Sports Max+",
-               "description": "Mirar Disney+ de manera gratuita",
+               "description": "Mirar TV de manera gratuita",
                "image": imageUrl,
                "sources": [
                    {
