@@ -169,7 +169,7 @@
                         // Reemplazar y encriptar la URL
                         const originalUrl = event.url.replace("/embed/eventos/?r=", "");
                         const decryptedUrl = atob(originalUrl);
-                        const newUrl = decryptedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "https://firebasestorage.googleapis.com/v0/b/king-fire-5fcc6.appspot.com/o/dsplayer.html?alt=media&token=75a4c811-5dbe-41a9-bb41-e423893744ce?id=");
+                        const newUrl = decryptedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "/dsplayer.html?id=");
                         const base64Url = btoa(newUrl); 
                         const fullUrl = `/disney.html?r=${base64Url}`;
 
