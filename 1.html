@@ -1,0 +1,36 @@
+<html>
+<head>
+  <script>
+    try {
+      var fop = ""; 
+      var kLt = [
+        "a1pTMjQ4OTA3NzlkeGg=", "SndPMjQ4OTA3NzZnS3M=", 
+        "cHJZMjQ4OTA4MjZEU2o=", "UUVEMjQ4OTA3OTlTVVE=", 
+        "eFl6MjQ4OTA4MzRFaWg=", "dUdIMjQ4OTA4NDVVdmc=", 
+        "Wm1LMjQ4OTA4MzNpeVI=", "ZUFIMjQ4OTA4NTBVckw=", 
+        "akRhMjQ4OTA4NTVhYnA=", "YklyMjQ4OTA4NDZzQnY=", 
+        "VlVIMjQ4OTA4MzV3SUg=", "SGlOMjQ4OTA4NzdsQms=", 
+        "WmVEMjQ4OTA4NjZIV0Q=", "YWhqMjQ4OTA4ODdBbUs=", 
+        "bWdhMjQ4OTA4MjhZV2Q=", "WkVTMjQ4OTA3NzlyVE0=", 
+        "Y3ViMjQ4OTA3NzZMbEw=", "Z3p3MjQ4OTA4MjZJVk8=", 
+        "SVRtMjQ4OTA4MTNRRmU=", "RkFKMjQ4OTA4NzBpblk=", 
+        "b2N6MjQ4OTA4ODJvc3c=", "VHFkMjQ4OTA4NzVIUFk=", 
+        "ekdNMjQ4OTA4NzRRcWM=", "eW9VMjQ4OTA4MjhVdFk="
+      ];
+      
+      kLt.forEach(function fQD(value) { 
+        var decodedValue = atob(value).replace(/\D/g, '');
+        fop += String.fromCharCode(parseInt(decodedValue) - 24890766);
+      }); 
+      
+      // Escribe el texto descifrado en la página
+      document.write("<pre>" + decodeURIComponent(escape(fop)) + "</pre>");
+    } catch (error) {
+      // Muestra cualquier error en la consola
+      console.error("Error descifrando el texto:", error);
+      document.write("<p>Ocurrió un error. Revisa la consola del navegador para más detalles.</p>");
+    }
+  </script>
+</head>
+<body></body>
+</html>
