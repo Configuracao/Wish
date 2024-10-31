@@ -359,7 +359,7 @@ body {
        var id = getQueryParameter('id');
 
        if (id) {
-           fetch('https://corsproxy.io/?url=https://sportsv.netlify.app/disney.json')
+           fetch('https://corsproxy.io/?url=https://futbol.free.nf/disney.json')
                .then(response => response.json())
                .then(data => {
                    const matchingItem = data.find(item => item.id.toString() === id);  // Use id for matching
