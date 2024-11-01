@@ -126,6 +126,7 @@
                     const eventsContainer = document.getElementById('events-container');
 
                     // Invertir el orden de los eventos
+                    const reversedEvents = data.reverse();
 
                     // Filtrar y ordenar eventos: En vivo primero, luego "PRONTO", luego finalizados
                     const sortedEvents = reversedEvents.sort((a, b) => {
