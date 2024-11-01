@@ -125,13 +125,7 @@
                 .then(data => {
                     const eventsContainer = document.getElementById('events-container');
 
-                    // Invertir el orden de los eventos
-                    const reversedEvents = data.reverse();
-
-                    // Filtrar y ordenar eventos: En vivo primero, luego "PRONTO", luego finalizados
-                    const sortedEvents = reversedEvents.sort((a, b) => {
-                        const statusA = a.status.toUpperCase();
-                        const statusB = b.status.toUpperCase();
+                    
 
                         if (statusA === 'EN VIVO' && statusB !== 'EN VIVO') {
                             return -1; // a va antes que b
