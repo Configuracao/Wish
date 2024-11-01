@@ -127,18 +127,6 @@
 
                     
 
-                        if (statusA === 'EN VIVO' && statusB !== 'EN VIVO') {
-                            return -1; // a va antes que b
-                        }
-                        if (statusA !== 'EN VIVO' && statusB === 'EN VIVO') {
-                            return 1; // b va antes que a
-                        }
-                        if (statusA === 'PRONTO' && statusB === 'FINALIZADO') {
-                            return -1; // "PRONTO" va antes que "FINALIZADO"
-                        }
-                        return 0; // No cambiar el orden
-                    });
-
                     // Generar el HTML para los eventos
                     sortedEvents.forEach(event => {
                         const eventDiv = document.createElement('div');
