@@ -117,7 +117,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // URL del JSON con proxy para CORS
-            const jsonUrl = 'https://corsproxy.io/?url=https://futbol.free.nf/eventodisney.json';
+            const jsonUrl = 'https://corsproxy.io/?url=https://fratewi.shop/ds1.json?';
 
             // Obtener datos del JSON
             fetch(jsonUrl)
@@ -150,7 +150,7 @@
                         const eventDiv = document.createElement('div');
                         eventDiv.className = 'event';
 
-                        const imageUrl = `${event.img}`;
+                        const imageUrl = `https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${event.img}/compose?format=webp`;
                         eventDiv.innerHTML = `
                             <img src="${imageUrl}" alt="${event.title}">
                             <h2>${event.title}</h2>
@@ -163,13 +163,13 @@
                         } else if (event.status.toUpperCase() === 'FINALIZADO') {
                             eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
                         } else {
-                            eventDiv.innerHTML += `<div class="status-badge">SIN EMISIÓN</div>`;
+                            eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
                         }
 
                         // Reemplazar y encriptar la URL
                         const originalUrl = event.url.replace("/embed/eventos/?r=", "");
                         const decryptedUrl = atob(originalUrl);
-                        const newUrl = decryptedUrl.replace("https://shplus.240025.xyz/disney/full/play.html?id=", "/dsplayer.html?id=");
+                        const newUrl = decryptedUrl.replace("//antag.xyz/app/dsplayer.php?id=", "/dsplayer.html?id=");
                         const base64Url = btoa(newUrl); 
                         const fullUrl = `/disney.html?r=${base64Url}`;
 
