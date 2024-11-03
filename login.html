@@ -96,9 +96,9 @@
             const currentDate = new Date();
             const expirationDate = new Date(storedSession.expiration);
 
-            // Si la sesión es válida, redirigir a home.html
+            // Si la sesión es válida, redirigir a index.html
             if (currentDate < expirationDate) {
-                window.location.href = "home.html";
+                window.location.href = "index.html";
             } else {
                 // Si la sesión expiró, limpiarla
                 localStorage.removeItem("session");
@@ -143,7 +143,7 @@
                 localStorage.setItem("session", JSON.stringify({ username, expiration: sessionExpiration }));
 
                 // Redirigir a home.html
-                window.location.href = "home.html";
+                window.location.href = "index.html";
             } catch (error) {
                 console.error("Error al cargar el archivo JSON", error);
             }
