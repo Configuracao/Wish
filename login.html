@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login con Expiración</title>
+    <style>
+        /* General */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4e54c8;
+        }
+
+        /* Formulario */
+        #loginForm {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #8f94fb;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4e54c8;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3c3fb8;
+        }
+
+        /* Mensaje de error */
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ff4b4b;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+        <h2>Inicio de Sesión</h2>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required>
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required>
+        
+        <button type="submit">Ingresar</button>
+        <p id="message"></p>
+    </form>
+
+    <script>
+        // Verificar si ya hay una sesión activa
+        const storedSession = JSON.parse(localStorage.getItem("session"));
+        if (storedSession) {
+            const currentDate = new Date();
+            const expirationDate = new Date(storedSession.expiration);
+
+            // Si la sesión es válida, redirigir a home.html
+            if (currentDate < expirationDate) {
+                window.location.href = "home.html";
+            } else {
+                // Si la sesión expiró, limpiarla
+                localStorage.removeItem("session");
+            }
+        }
+
+        // Manejar el envío del formulario de login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            login();
+        });
+
+        async function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                // Cargar archivo JSON de usuarios
+                const response = await fetch('usuarios.json');
+                const usuarios = await response.json();
+
+                // Buscar el usuario en el JSON
+                const usuario = usuarios.find(user => user.username === username && user.password === password);
+
+                if (!usuario) {
+                    document.getElementById("message").innerText = "Usuario o contraseña incorrectos.";
+                    return;
+                }
+
+                // Verificación de expiración en JSON
+                const expirationDate = new Date(usuario.expiration);
+                const currentDate = new Date();
+
+                if (currentDate > expirationDate) {
+                    document.getElementById("message").innerText = "La cuenta ha expirado.";
+                    return;
+                }
+
+                // Guardar la sesión en localStorage con una expiración de 30 días
+                const sessionExpiration = new Date();
+                sessionExpiration.setDate(sessionExpiration.getDate() + 30);
+                localStorage.setItem("session", JSON.stringify({ username, expiration: sessionExpiration }));
+
+                // Redirigir a home.html
+                window.location.href = "home.html";
+            } catch (error) {
+                console.error("Error al cargar el archivo JSON", error);
+            }
+        }
+    </script>
+</body>
+</html>
