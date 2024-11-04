@@ -90,30 +90,37 @@
     </form>
 
     <script>
-        // Redirigir a hone.html si el usuario ya ha iniciado sesión
+        // Redirigir a home.html si el usuario ya ha iniciado sesión
         if (localStorage.getItem("session")) {
             const session = JSON.parse(localStorage.getItem("session"));
             const expirationDate = new Date(session.expiration);
             const currentDate = new Date();
 
             if (expirationDate > currentDate) {
-                window.location.href = "hone.html";
+                window.location.href = "home.html";
             } else {
                 localStorage.removeItem("session"); // Limpiar sesión si ha expirado
             }
         }
 
-        const users = [
-            { "username": "usuario1", "password": "password1", "expiration": "20/12/2024" },
-            { "username": "usuario2", "password": "password2", "expiration": "31/12/2024" }
-        ];
+        // Cargar usuarios desde el JSON
+        async function fetchUsers() {
+            try {
+                const response = await fetch('usuarios.json');
+                return await response.json();
+            } catch (error) {
+                console.error("Error al cargar los usuarios:", error);
+                return [];
+            }
+        }
 
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
+        document.getElementById("loginForm").addEventListener("submit", async function(event) {
             event.preventDefault();
-            login();
+            const users = await fetchUsers();
+            login(users);
         });
 
-        function login() {
+        function login(users) {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
             const user = users.find(user => user.username === username && user.password === password);
@@ -126,7 +133,7 @@
             const expirationDate = new Date();
             expirationDate.setDate(expirationDate.getDate() + 30); // Sesión expira en 30 días
             localStorage.setItem("session", JSON.stringify({ username, expiration: expirationDate }));
-            window.location.href = "hone.html";
+            window.location.href = "home.html";
         }
     </script>
 </body>
