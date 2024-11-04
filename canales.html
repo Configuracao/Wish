@@ -97,6 +97,14 @@ body {
        }
    });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem("loggedIn") !== "true") {
+            // Redirige a index.html si el usuario no ha iniciado sesión
+            window.location.href = "index.html";
+        }
+    });
+</script>
  </head>
  <body>
   <div id="player"></div>
