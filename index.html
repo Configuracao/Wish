@@ -65,6 +65,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-bottom: 10px;
         }
         button:hover {
             background-color: #3c3fb8;
@@ -73,6 +74,19 @@
             color: red;
             font-weight: bold;
             margin-top: 10px;
+        }
+        #contactAdmin {
+            background-color: #555;
+            color: #fff;
+            font-size: 14px;
+            padding: 10px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #contactAdmin:hover {
+            background-color: #333;
         }
     </style>
 </head>
@@ -87,17 +101,20 @@
         
         <button type="submit">Ingresar</button>
         <p id="message"></p>
+        
+        <!-- Botón para contactar al administrador -->
+        <a id="contactAdmin" href="https://t.me/tu_usuario_telegram" target="_blank">Obtener Acceso</a>
     </form>
 
     <script>
-        // Redirigir a hone.html si el usuario ya ha iniciado sesión
+        // Redirigir a home.html si el usuario ya ha iniciado sesión
         if (localStorage.getItem("session")) {
             const session = JSON.parse(localStorage.getItem("session"));
             const expirationDate = new Date(session.expiration);
             const currentDate = new Date();
 
             if (expirationDate > currentDate) {
-                window.location.href = "hone.html";
+                window.location.href = "home.html";
             } else {
                 localStorage.removeItem("session"); // Limpiar sesión si ha expirado
             }
@@ -133,7 +150,7 @@
             const expirationDate = new Date();
             expirationDate.setDate(expirationDate.getDate() + 30); // Sesión expira en 30 días
             localStorage.setItem("session", JSON.stringify({ username, expiration: expirationDate }));
-            window.location.href = "hone.html";
+            window.location.href = "home.html";
         }
     </script>
 </body>
