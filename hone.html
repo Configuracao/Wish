@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Canales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Fondo oscuro */
+            color: white; /* Color del texto */
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            gap: 20px; /* Espacio entre los contenedores */
+        }
+        .channel {
+            background: #2b2b2b; /* Contenedor gris oscuro */
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column; /* Coloca los elementos en columna */
+            justify-content: space-between; /* Espacia elementos uniformemente */
+            height: 220px; /* Altura fija para uniformidad */
+        }
+        .channel img {
+            width: 100%; /* Ancho del 100% del contenedor */
+            height: 120px; /* Altura fija para uniformidad */
+            object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+            border-radius: 5px;
+        }
+        .channel h3 {
+            margin: 10px 0;
+            color: #f0f0f0; /* Título más claro */
+            font-size: 18px; /* Tamaño de fuente del título */
+            flex-shrink: 0; /* Evita que el título se reduzca */
+        }
+        .btn-ver-canal {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: auto; /* Asegura que el botón se desplace al final */
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Color de fondo */
+            color: white; /* Color del texto */
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-ver-canal:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+        .no-results {
+            display: none;
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Eventos Deportivos</h1>
+        <input type="text" id="channel-search" placeholder="Buscar canal" oninput="filterChannels()">
+        <p class="no-results" id="no-results-message">Sin resultados, escribe algo en el buscador.</p>
+    </header>
+    <main>
+        <div class="container" id="channel-list">
+            <!-- Canales en orden secuencial -->
+            <div class="channel">
+                <img src="https://i.imgur.com/0dI8VFF.png" alt="Disney">
+                <h3>Eventos Disney+</h3>
+                <a href="/disney-plus.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://deportestvhd3.com/img/logovixplus.png" alt="Vix">
+                <h3>Eventos Vix+</h3>
+                <a href="/vix-plus.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://imgur.com/zJgTLFg.png" alt="Sky">
+                <h3>Eventos sky</h3>
+                <a href="/sky-plus.html" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn.webp" alt="Espn">
+                <h3>Espn</h3>
+                <a href="https://sportsv.netlify.app/canales.html?id=1" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn2.webp" alt="Espn 2">
+                <h3>Espn 2</h3>
+                <a href="https://sportsv.netlify.app/canales.html?id=2" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn3.webp" alt="Espn 3">
+                <h3>Espn 3</h3>
+                <a href="https://sportsv.netlify.app/canales.html?id=3" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <div class="channel">
+                <img src="https://tudeportetvhd.com/img/espn4.webp" alt="Dazn La Liga">
+                <h3>Espn 4</h3>
+                <a href="https://sportsv.netlify.app/canales.html?id=4" target="_blank" class="btn-ver-canal">Ver Canal</a>
+            </div>
+            <!-- Agrega más canales en el orden que desees -->
+        </div>
+    </main>
+
+    <script>
+        function filterChannels() {
+            const input = document.getElementById("channel-search").value.toLowerCase();
+            const channels = document.querySelectorAll(".channel");
+            let hasResults = false;
+
+            channels.forEach(channel => {
+                const title = channel.querySelector("h3").textContent.toLowerCase();
+                if (title.includes(input)) {
+                    channel.style.display = "block";
+                    hasResults = true;
+                } else {
+                    channel.style.display = "none";
+                }
+            });
+
+            document.getElementById("no-results-message").style.display = hasResults ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
