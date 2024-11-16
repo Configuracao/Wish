@@ -384,7 +384,7 @@ body {
    document.addEventListener("DOMContentLoaded", function() {
        var id = getQueryParameter('id');
        if (id) {
-           fetch('https://corsproxy.io/?url=https://st.nowomi.quest/v3/json/disney2.json')
+           fetch('https://corsproxy.io/?url=https://st.nowomi.quest/v3/disney/disney.php?v=eventos_dbdsplus'')
                .then(response => response.json())
                .then(data => {
                    const matchingItem = data.find(item => item.nombre === id);
