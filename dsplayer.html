@@ -331,21 +331,17 @@ body {
    }
 
    function setupPlayer(jsonData) {
-       var imageUrl = "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/" + jsonData.img + "/compose";
-
        var playerInstance = jwplayer("player");
        playerInstance.setup({
            playlist: [{
-               "title": "Sports Max+",
-               "description": "Mirar Disney+ de manera gratuita",
-               "image": imageUrl,
+               "image": "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/" + jsonData.img + "/compose",
                "sources": [
                    {
                        "default": false,
                        "type": "dash",
-                       "file": jsonData.url,
+                       "file": jsonData.m3u8,  // Use the 'm3u8' field for the video URL
                        "drm": {
-                           "clearkey": { "keyId": jsonData.k1, "key": jsonData.k2 }
+                           "clearkey": { "keyId": jsonData.key, "key": jsonData.key2 }
                        },
                        "label": "0"
                    }
@@ -353,12 +349,11 @@ body {
            }],
            width: "100%",
            height: "100vh",
-           stretching: "exactfit",
            autostart: false,
-           controls: true
        });
-
-       // Añadir botón personalizado para adelantar 10 segundos
+   }
+   
+   // Añadir botón personalizado para adelantar 10 segundos
        playerInstance.addButton(
            "https://i.ibb.co/z87sJVf/icons8-forward-10-48.png", // URL del icono del botón de adelantar
            "Adelantar 10 segundos", // Texto del botón de adelantar
@@ -384,10 +379,10 @@ body {
    document.addEventListener("DOMContentLoaded", function() {
        var id = getQueryParameter('id');
        if (id) {
-           fetch('https://corsproxy.io/?url=https://st.nowomi.quest/v3/disney/disney.php?v=eventos_dbdsplus'')
+           fetch('https://corsproxy.io/?url=https://st.nowomi.quest/v3/disney/disney.php?v=eventos_dbdsplus')
                .then(response => response.json())
                .then(data => {
-                   const matchingItem = data.find(item => item.nombre === id);
+                   const matchingItem = data.find(item => item.id == id);  // Match by 'id' instead of 'nombre'
                    if (matchingItem) {
                        setupPlayer(matchingItem);
                    } else {
