@@ -161,7 +161,7 @@
 
                             const originalUrl = event.url.replace("/embed/eventos/?r=", "");
                             const decryptedUrl = atob(originalUrl);
-                            const newUrl = decryptedUrl.replace("//st.nowomi.quest/v3/dsplayer.php?id=", "/dsplayer.html?id=");
+                            const newUrl = decryptedUrl.replace("//st.nowomi.quest/v3/disney/repro.php?id=", "/dsplayer.html?id=");
                             const base64Url = btoa(newUrl); 
                             const fullUrl = `/disney.html?r=${base64Url}`;
 
