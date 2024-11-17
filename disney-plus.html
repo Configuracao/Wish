@@ -115,54 +115,56 @@
     <div id="events-container"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const jsonUrl = 'https://st.nowomi.quest/v3/disney/disney.php?v=eventos&updmegr8';
-            const refreshInterval = 30000; // Intervalo de actualización en milisegundos (30 segundos)
+    document.addEventListener('DOMContentLoaded', function () {
+        const jsonUrl = 'https://st.nowomi.quest/v3/disney/disney.php?v=eventos&updmegr8';
+        const refreshInterval = 30000; // Intervalo de actualización en milisegundos (30 segundos)
 
-            function fetchAndUpdateEvents() {
-                fetch(jsonUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        const eventsContainer = document.getElementById('events-container');
-                        eventsContainer.innerHTML = ''; // Limpiar eventos previos
+        function fetchAndUpdateEvents() {
+            fetch(jsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const eventsContainer = document.getElementById('events-container');
+                    eventsContainer.innerHTML = ''; // Limpiar eventos previos
 
-                        // Invertir el orden de los eventos
-                        const reversedEvents = data.reverse();
+                    // Convertir el JSON en un array si no lo es
+                    const eventsArray = Array.isArray(data) ? data : [data];
 
-                        // Filtrar y ordenar eventos: En vivo primero, luego "PRONTO", luego finalizados
-                        const sortedEvents = reversedEvents.sort((a, b) => {
-                            const statusA = a.status.toUpperCase();
-                            const statusB = b.status.toUpperCase();
-                            if (statusA === 'EN VIVO' && statusB !== 'EN VIVO') return -1;
-                            if (statusA !== 'EN VIVO' && statusB === 'EN VIVO') return 1;
-                            if (statusA === 'PRONTO' && statusB === 'FINALIZADO') return -1;
-                            return 0;
-                        });
+                    // Filtrar y ordenar eventos: En vivo primero, luego "PRONTO", luego finalizados
+                    const sortedEvents = eventsArray.sort((a, b) => {
+                        const statusA = a.status.toUpperCase();
+                        const statusB = b.status.toUpperCase();
+                        if (statusA === 'EN VIVO' && statusB !== 'EN VIVO') return -1;
+                        if (statusA !== 'EN VIVO' && statusB === 'EN VIVO') return 1;
+                        if (statusA === 'PRONTO' && statusB === 'FINALIZADO') return -1;
+                        return 0;
+                    });
 
-                        // Generar el HTML para los eventos
-                        sortedEvents.forEach(event => {
-                            const eventDiv = document.createElement('div');
-                            eventDiv.className = 'event';
+                    // Generar el HTML para los eventos
+                    sortedEvents.forEach(event => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.className = 'event';
 
-                            const imageUrl = `https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${event.img}/compose?format=webp`;
-                            eventDiv.innerHTML = `
-                                <img src="${imageUrl}" alt="${event.title}">
-                                <h2>${event.title}</h2>
-                                <p>${event.league}</p>
-                            `;
+                        const imageUrl = `https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/${event.img}/compose?format=webp`;
+                        eventDiv.innerHTML = `
+                            <img src="${imageUrl}" alt="${event.title}">
+                            <h2>${event.title}</h2>
+                            <p>${event.league}</p>
+                        `;
 
-                            if (event.status.toUpperCase() === 'EN VIVO') {
-                                eventDiv.innerHTML += `<div class="live-status">EN VIVO</div>`;
-                            } else if (event.status.toUpperCase() === 'FINALIZADO') {
-                                eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
-                            } else {
-                                eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
-                            }
+                        if (event.status.toUpperCase() === 'EN VIVO') {
+                            eventDiv.innerHTML += `<div class="live-status">EN VIVO</div>`;
+                        } else if (event.status.toUpperCase() === 'FINALIZADO') {
+                            eventDiv.innerHTML += `<div class="final-status">FINALIZADO</div>`;
+                        } else {
+                            eventDiv.innerHTML += `<div class="status-badge">PRÓXIMAMENTE</div>`;
+                        }
 
+                        // Decodificar y construir la URL del evento
+                        if (event.url) {
                             const originalUrl = event.url.replace("/embed/eventos/?r=", "");
                             const decryptedUrl = atob(originalUrl);
-                            const newUrl = decryptedUrl.replace("//st.nowomi.quest/v3/disney/repro.php?id=", "/dsplayer.html?id=");
-                            const base64Url = btoa(newUrl); 
+                            const newUrl = decryptedUrl.replace("//st.nowomi.quest/v3/dsplayer.php?id=", "/dsplayer.html?id=");
+                            const base64Url = btoa(newUrl);
                             const fullUrl = `/disney.html?r=${base64Url}`;
 
                             const link = document.createElement('a');
@@ -172,41 +174,43 @@
                             link.tabIndex = 0;
 
                             eventDiv.appendChild(link);
-                            eventsContainer.appendChild(eventDiv);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error al cargar los eventos:', error);
+                        }
+
+                        eventsContainer.appendChild(eventDiv);
                     });
-            }
+                })
+                .catch(error => {
+                    console.error('Error al cargar los eventos:', error);
+                });
+        }
 
-            // Cargar los eventos por primera vez
-            fetchAndUpdateEvents();
+        // Cargar los eventos por primera vez
+        fetchAndUpdateEvents();
 
-            // Actualizar los eventos cada 30 segundos
-            setInterval(fetchAndUpdateEvents, refreshInterval);
+        // Actualizar los eventos cada 30 segundos
+        setInterval(fetchAndUpdateEvents, refreshInterval);
 
-            // Navegación con teclas para Android TV
-            document.addEventListener('keydown', function(event) {
-                const activeElement = document.activeElement;
-                const events = document.querySelectorAll('.event a');
+        // Navegación con teclas para Android TV
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const events = document.querySelectorAll('.event a');
 
-                if (event.key === 'ArrowDown') {
-                    event.preventDefault();
-                    const currentIndex = Array.from(events).indexOf(activeElement);
-                    if (currentIndex < events.length - 1) {
-                        events[currentIndex + 1].focus();
-                    }
-                } else if (event.key === 'ArrowUp') {
-                    event.preventDefault();
-                    const currentIndex = Array.from(events).indexOf(activeElement);
-                    if (currentIndex > 0) {
-                        events[currentIndex - 1].focus();
-                    }
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex < events.length - 1) {
+                    events[currentIndex + 1].focus();
                 }
-            });
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                const currentIndex = Array.from(events).indexOf(activeElement);
+                if (currentIndex > 0) {
+                    events[currentIndex - 1].focus();
+                }
+            }
         });
-    </script>
+    });
+</script>
     <script>
     // Comprobar si el usuario ha iniciado sesión
     const session = JSON.parse(localStorage.getItem("session"));
