@@ -1,10 +1,3 @@
-[
-  {
-    "usuario": "admin",
-    "clave": "12345"
-  },
-  {
-    "usuario": "cliente",
-    "clave": "abcd"
-  }
-]
+{
+  "clave": "1234"
+}
