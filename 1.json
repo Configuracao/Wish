@@ -1,4 +1,10 @@
 [
-  { "username": "admin", "password": "1234" },
-  { "username": "user", "password": "abcd" }
+  {
+    "usuario": "admin",
+    "clave": "1234"
+  },
+  {
+    "usuario": "test",
+    "clave": "abcd"
+  }
 ]
