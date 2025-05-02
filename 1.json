@@ -1,10 +1,12 @@
-[
-  {
-    "usuario": "admin",
-    "clave": "3334"
-  },
-  {
-    "usuario": "admin",
-    "clave": "4444"
-  }
-]
+{
+  "usuarios": [
+    {
+      "usuario": "admin",
+      "clave": "1234"
+    },
+    {
+      "usuario": "demo",
+      "clave": "demo"
+    }
+  ]
+}
