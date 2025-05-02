@@ -1,10 +1,10 @@
 [
   {
     "usuario": "admin",
-    "clave": "1234"
+    "senha": "1234"
   },
   {
-    "usuario": "juan",
-    "clave": "abcd"
+    "usuario": "test",
+    "senha": "abcd"
   }
 ]
