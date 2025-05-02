@@ -1,14 +1,10 @@
 [
   {
     "usuario": "admin",
-    "clave": "12345"
+    "contraseña": "1234"
   },
   {
-    "usuario": "juan",
-    "clave": "2025"
-  },
-  {
-    "usuario": "maria",
-    "clave": "clave2024"
+    "usuario": "user",
+    "contraseña": "abcd"
   }
 ]
