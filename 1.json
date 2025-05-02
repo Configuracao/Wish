@@ -1,12 +1,14 @@
-{
-  "usuarios": [
-    {
-      "usuario": "admin",
-      "clave": "4444"
-    },
-    {
-      "usuario": "demo",
-      "clave": "demo"
-    }
-  ]
-}
+[
+  {
+    "usuario": "admin",
+    "contrasena": "1234"
+  },
+  {
+    "usuario": "juan",
+    "contrasena": "abcd"
+  },
+  {
+    "usuario": "maria",
+    "contrasena": "pass2024"
+  }
+]
