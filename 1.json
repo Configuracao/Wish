@@ -1,10 +1,10 @@
 [
   {
     "usuario": "admin",
-    "contraseña": "1234"
+    "clave": "1234"
   },
   {
-    "usuario": "user",
-    "contraseña": "abcd"
+    "usuario": "juan",
+    "clave": "abcd"
   }
 ]
