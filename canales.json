@@ -1,31 +1,16 @@
-[
-  {
-    "img": "6bc5e8be-fff1-4bdf-affb-07e19a3dae30",
-    "nombre": "1",
-    "k1": "cb004fb100bd92f23793562891e3236b",
-    "k2": "b3e4e74ae2080b137e68bbd0ef8a7e05",
-    "url": "https://vcdn.mn10.entel.bo/Content/DASH/Live/Channel(8757cb0a-3584-40cd-901e-8937c7deba83)/master.mpd"
-  },
-  {
-    "img": "16dfd4d5-7a23-4f2f-b06b-2d2d6aa4d962",
-    "nombre": "2",
-    "k1": "a81ee4a694fecd6aa8a682e5024b313c",
-    "k2": "6d15568e1dab59e7202ae12e7150",
-    "url": "https://vcdn.mn10.entel.bo/Content/DASH/Live/Channel(62567d5c-295c-4ffd-ac7e-c9749e874884)/master.mpd"
-  },
-  {
-    "img": "6095bdf2-8ebb-48d3-80ac-1ed1344fc6c2",
-    "nombre": "3",
-    "k1": "c47c7b457ba046738f112567fedec661",
-    "k2": "fb8d1ae0ee237d441449b27bdbebeaa9",
-    "url": "https://anedgesgo.express.com.ar/live/c1eds/ESPN_3_HD/SA_DASH_cipix/ESPN_3_HD.mpd"
-  },
-  {
-    "img": "0a99e555-8fe7-4e01-b034-b2562539cddc",
-    "nombre": "4",
-    "k1": "a8082fc466f246da80212d793fd95eaf",
-    "k2": "383b9f12f6bb5aa4c5086a2b76a2e8c8",
-    "url": "https://anedgesgo.express.com.ar/live/c1eds/ESPNp_HD/SA_DASH_cipix/ESPNp_HD.mpd"
-  }
-  
-]
+{
+  "canales": [
+    {
+      "nombre": "ESPN",
+      "embed": "https://example.com/espn-embed"
+    },
+    {
+      "nombre": "Fox Sports",
+      "embed": "https://example.com/foxsports-embed"
+    },
+    {
+      "nombre": "TNT Sports",
+      "embed": "https://example.com/tnt-embed"
+    }
+  ]
+}
