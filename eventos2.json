@@ -1,0 +1,84 @@
+{
+  "eventos": [
+    {
+      "titulo": "Fulham  │  Everton",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/24/F1_l5Jz3f_1290x760__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney2"
+    },
+    {
+      "titulo": "Ipswich  │  Brentford",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/23/WvIwP5rzZ_1290x760__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney2"
+    },
+    {
+      "titulo": "Southampton  │  Manchester City",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/24/8O_vUqjl-_1200x630__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn"
+    },
+    {
+      "titulo": "Wolverhampton  │  Brighton",
+      "descripcion": "Premier League",
+      "imagen": "https://ichef.bbci.co.uk/ace/standard/1920/cpsprodpb/d64e/live/982dc3b0-d65e-11ee-8f28-259790e80bba.png",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn4"
+    },
+    {
+      "titulo": "Bournemouth  │  Aston Villa",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/22/W3iaMOWhU_1290x650__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn"
+    },
+    {
+      "titulo": "Valencia  │  Getafe",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680021/16x9/1280x720_20250422221834.jpg",
+      "fecha": "2025-05-10",
+      "hora": "6:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn"
+    },
+    {
+      "titulo": "Celta de Vigo  │  Sevilla",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680023/16x9/1280x720_20250422221920.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:15",
+      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
+    },
+    {
+      "titulo": "Girona  │  Villarreal",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680022/16x9/1280x720_20250422222005.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
+    },
+    {
+      "titulo": "Mallorca  │  Valladolid",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680019/16x9/1280x720_20250422222841.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn4"
+    },
+    {
+      "titulo": "Atlético de Madrid  │  Real Sociedad",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680021/16x9/1280x720_20250422221834.jpg",
+      "fecha": "2025-05-10",
+      "hora": "6:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
+    },
+  ]
+}
