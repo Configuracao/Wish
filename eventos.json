@@ -31,6 +31,22 @@
       "fecha": "2025-05-09",
       "hora": "13:00",
       "enlace": "https://streamtp4.com/global1.php?stream=disney6"
+    },
+    {
+      "titulo": "Nuggets vs Thunder (Conference Semifinals, Game 3)",
+      "descripcion": "NBA",
+      "imagen": "https://artwork.espncdn.com/events/401769822/16x9/1280x720_20250504021638.png",
+      "fecha": "2025-05-09",
+      "hora": "20:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
+    },
+    {
+      "titulo": "Pacers vs Cavaliers (Conference Semifinals, Game 3)",
+      "descripcion": "NBA",
+      "imagen": "https://artwork.espncdn.com/events/401769741/16x9/1280x720_20250503041018.png",
+      "fecha": "2025-05-09",
+      "hora": "17:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
     }
   ]
 }
