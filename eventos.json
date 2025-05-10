@@ -1,52 +1,92 @@
 {
   "eventos": [
     {
-      "titulo": "İstanbul Başakşehir vs Fenerbahçe",
-      "descripcion": "Super Lig",
-      "imagen": "https://iasbh.tmgrup.com.tr/6c8ba1/650/344/0/0/752/395?u=https://isbh.tmgrup.com.tr/sbh/2020/01/25/fenerbahce-basaksehir-hangi-kanalda-super-lig-fenerbahce-basaksehir-ne-zaman-ve-saat-kacta-oynanacak-1579904803313.jpg",
-      "fecha": "2025-05-09",
-      "hora": "11:00",
+      "titulo": "Fulham  │  Everton",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/24/F1_l5Jz3f_1290x760__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney8"
+    },
+    {
+      "titulo": "Ipswich  │  Brentford",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/23/WvIwP5rzZ_1290x760__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney9"
+    },
+    {
+      "titulo": "Southampton  │  Manchester City",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/24/8O_vUqjl-_1200x630__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney10"
+    },
+    {
+      "titulo": "Wolverhampton  │  Brighton",
+      "descripcion": "Premier League",
+      "imagen": "https://ichef.bbci.co.uk/ace/standard/1920/cpsprodpb/d64e/live/982dc3b0-d65e-11ee-8f28-259790e80bba.png",
+      "fecha": "2025-05-10",
+      "hora": "8:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney11"
+    },
+    {
+      "titulo": "Bournemouth  │  Aston Villa",
+      "descripcion": "Premier League",
+      "imagen": "https://www.ole.com.ar/images/2024/10/22/W3iaMOWhU_1290x650__1.jpg",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney15"
+    },
+    {
+      "titulo": "Valencia  │  Getafe",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680021/16x9/1280x720_20250422221834.jpg",
+      "fecha": "2025-05-10",
+      "hora": "6:00",
       "enlace": "https://streamtp4.com/global1.php?stream=disney2"
     },
     {
-      "titulo": "Wolfsburg Vs Hoffenheim",
-      "descripcion": "Bundesliga",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=612&width=1088&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https%3A//artwork.espncdn.com/events/401732415/16x9/1280x720_20241130230929.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-09",
-      "hora": "12:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney3"
+      "titulo": "Celta de Vigo  │  Sevilla",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680023/16x9/1280x720_20250422221920.jpg",
+      "fecha": "2025-05-10",
+      "hora": "8:15",
+      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
     },
     {
-      "titulo": "Milan Vs Bologna",
-      "descripcion": "Serie A",
-      "imagen": "https://media.tycsports.com/files/2025/05/07/839600/milan-vs-bologna-en-vivo-como-llegan-al-partido_416x234.webp",
-      "fecha": "2025-05-09",
-      "hora": "12:45",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney5"
+      "titulo": "Girona  │  Villarreal",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680022/16x9/1280x720_20250422222005.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
     },
     {
-      "titulo": "Las Palmas Vs Rayo Vallecano",
-      "descripcion": "La Liga",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680026/16x9/1280x720_20250422221756.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-09",
+      "titulo": "Mallorca  │  Valladolid",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680019/16x9/1280x720_20250422222841.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-10",
+      "hora": "10:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=disney17"
+    },
+    {
+      "titulo": "Atlético de Madrid  │  Real Sociedad",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680025/16x9/1280x720_20250422222502.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-10",
       "hora": "13:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney6"
-    },
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
+    }
     {
-      "titulo": "Nuggets vs Thunder (Conference Semifinals, Game 3)",
-      "descripcion": "NBA",
-      "imagen": "https://artwork.espncdn.com/events/401769822/16x9/1280x720_20250504021638.png",
-      "fecha": "2025-05-09",
-      "hora": "20:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
-    },
-    {
-      "titulo": "Pacers vs Cavaliers (Conference Semifinals, Game 3)",
-      "descripcion": "NBA",
-      "imagen": "https://artwork.espncdn.com/events/401769741/16x9/1280x720_20250503041018.png",
-      "fecha": "2025-05-09",
-      "hora": "17:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
+      "titulo": "Minnesota  │  Inter Miami",
+      "descripcion": "MLS",
+      "imagen": "https://artwork.espncdn.com/events/401392802/16x9/1280x720_20220608194003.jpg",
+      "fecha": "2025-05-10",
+      "hora": "14:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=mls1es"
     }
   ]
 }
