@@ -1,100 +1,28 @@
 {
   "eventos": [
     {
-      "titulo": "Newcastle │ Chelsea",
-      "descripcion": "Premier League",
-      "imagen": "https://www.ole.com.ar/images/2024/10/25/5MErnZaKB_1290x760__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "5:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn"
+      "titulo": "Real Sociedad │ Celta",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679855/16x9/1280x720_20241203203143.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-13",
+      "hora": "12:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
     },
     {
       "titulo": "Manchester United │ West Ham",
-      "descripcion": "Premier League",
-      "imagen": "https://www.ole.com.ar/images/2024/10/25/ZsDDM5cK9_1290x760__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "7:15",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney10"
-    },
-    {
-      "titulo": "Tottenham │ Crystal Palace",
-      "descripcion": "Premier League",
-      "imagen": "https://www.ole.com.ar/images/2024/10/25/EzEidmlM7_1200x630__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "7:15",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney8"
-    },
-    {
-      "titulo": "Nottingham │ Leicester City",
-      "descripcion": "Premier League",
-      "imagen": "https://www.ole.com.ar/images/2024/10/22/--BkuBi5H_1200x630__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "7:15",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney9"
-    },
-    {
-      "titulo": "Liverpool │ Arsenal",
-      "descripcion": "Premier League",
-      "imagen": "https://www.ole.com.ar/images/2024/10/25/0FG2amO9v_1200x630__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "9:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn3"
-    },
-    {
-      "titulo": "Leganés │ Espanyol",
       "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679866/16x9/1280x720_20241213213129.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-11",
-      "hora": "6:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn4"
-    },
-    {
-      "titulo": "Barcelona │ Real Madrid",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401342194/16x9/1280x720_20211012224751.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-11",
-      "hora": "8:15",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn"
-    },
-    {
-      "titulo": "Athletic Bilbao │ Alavés",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680017/16x9/1280x720_20250422223053.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-11",
-      "hora": "10:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
-    },
-    {
-      "titulo": "Real Betis │ Osasuna",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401558153/16x9/1280x720_20240415023955.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-11",
-      "hora": "13:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
-    },
-    {
-      "titulo": "Bayer Leverkusen │ Borussia Dortmund",
-      "descripcion": "Bundesliga",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=522&width=928&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https%3A//artwork.espncdn.com/events/401564251/16x9/1280x720_20240404231001.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-11",
-      "hora": "7:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn3"
-    },
-    {
-      "titulo": "Torino │ Inter",
-      "descripcion": "Serie A",
-      "imagen": "https://www.ole.com.ar/images/2025/05/09/fu_Un0OMu_1290x760__1.jpg",
-      "fecha": "2025-05-11",
-      "hora": "10:00",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679853/16x9/1280x720_20241203214000.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-13",
+      "hora": "11:15",
       "enlace": "https://streamtp4.com/global1.php?stream=espn2"
     },
     {
-      "titulo": "Napoli │ Genoa",
-      "descripcion": "Bundesliga",
-      "imagen": "https://media.tycsports.com/files/2025/05/09/840361/napoli-vs-genoa-en-vivo-como-llegan-al-partido_862x485.webp",
-      "fecha": "2025-05-11",
-      "hora": "12:45",
-      "enlace": "https://streamtp4.com/global1.php?stream=disney5"
+      "titulo": "Tottenham │ Crystal Palace",
+      "descripcion": "Liga de España",
+      "imagen": "https://artwork.espncdn.com/events/401680034/16x9/1280x720_20250422223255.jpg",
+      "fecha": "2025-05-13",
+      "hora": "13:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
     }
   ]
 }
