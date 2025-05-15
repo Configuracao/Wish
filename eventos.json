@@ -1,28 +1,36 @@
 {
   "eventos": [
     {
-      "titulo": "Real Sociedad │ Celta",
+      "titulo": "Osasuna │ Atlético Madrid",
       "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679855/16x9/1280x720_20241203203143.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-13",
-      "hora": "12:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=dsports"
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401558185/16x9/1280x720_20240515134212.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-15",
+      "hora": "11:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
     },
     {
-      "titulo": "Manchester United │ West Ham",
+      "titulo": "Rayo Vallecano │ Real Betis",
       "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679853/16x9/1280x720_20241203214000.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-13",
-      "hora": "11:15",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679849/16x9/1280x720_20241203203640.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-15",
+      "hora": "11:00",
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
     },
     {
-      "titulo": "Tottenham │ Crystal Palace",
+      "titulo": "Espanyol │ Barcelona",
       "descripcion": "Liga de España",
-      "imagen": "https://artwork.espncdn.com/events/401680034/16x9/1280x720_20250422223255.jpg",
-      "fecha": "2025-05-13",
-      "hora": "13:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=espn2"
+      "imagen": "https://artwork.espncdn.com/events/401680033/16x9/1280x720_20250422225029.jpg",
+      "fecha": "2025-05-15",
+      "hora": "13:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
+    },
+    {
+      "titulo": "Getafe │ Athletic Club",
+      "descripcion": "Liga de España",
+      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680029/16x9/1280x720_20250424032109.jpg&showBadge=true&package=ESPN_PLUS",
+      "fecha": "2025-05-15",
+      "hora": "13:30",
+      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
     }
   ]
 }
