@@ -110,6 +110,11 @@
       "key": "cloudflarestorage.com",
     "referer": "https://alldownplay.xyz/",
       "origin": "https://alldownplay.xyz"
+     },
+     {
+      "key": "cdn.sensa.com.ar",
+    "referer": "https://webclient.antinaplayplus.com.ar/",
+      "origin": "https://webclient.antinaplayplus.com.ar"
      }
   ]
 }
