@@ -1,0 +1,115 @@
+{
+  "URL_MAP": [
+    {
+      "key": "sensa.com.ar",
+      "referer": "https://player.sensa.com.ar/",
+      "origin": "https://player.sensa.com.ar",
+      "webtoken": "1.0",
+      "useragent":"Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36"
+    
+    },
+    {
+      "key": "pricesaskeloadsc.com",
+      "referer": "https://streamtp3.com/",
+      "origin": "https://streamtp3.com"
+    },
+    {
+      "key": "streamtp3.com",
+      "referer": "https://streamtp3.com/",
+      "origin": "https://streamtp3.com"
+    },
+    {
+      "key": "streamtp4.com",
+      "referer": "https://streamtp4.com/",
+      "origin": "https://streamtp4.com"
+    },
+    {
+      "key": "streamtp2.com",
+      "referer": "https://streamtp2.com/",
+      "origin": "https://streamtp2.com"
+    },
+    {
+      "key": "dazn",
+      "referer": "null",
+      "origin": "null",
+      "useragent": "Mozilla/5.0 (CrKey armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.210 Safari/537.36"
+    },
+    {
+      "key": "cqloud.com",
+      "referer": "https://web.flow.com.ar/",
+      "origin": "https://web.flow.com.ar",
+      "useragent": ""
+    },
+    {
+      "key": "cvattv.com.ar",
+      "referer": "https://web.flow.com.ar/",
+      "origin": "https://web.flow.com.ar",
+      "useragent": ""
+    },
+    {
+      "key": "dcs4-live.mp.lura.live",
+      "referer": "https://vix.com/",
+      "origin": "https://vix.com"
+    },
+    {
+      "key": "vix.com",
+      "referer": "https://vix.com/",
+      "origin": "https://vix.com"
+    },
+    {
+      "key": "izzigo.tv",
+      "referer": "https://www.izzigo.tv/",
+      "origin": "https://www.izzigo.tv"
+    },
+    {
+      "key": "starott",
+      "referer": "https://starplus.com/",
+      "origin": "https://starplus.com"
+    },
+    {
+      "key": "dssott",
+      "referer": "https://disneyplus.com/",
+      "origin": "https://disneyplus.com"
+    },
+    {
+      "key": "express.com.ar",
+      "referer": "https://nowtv.express.com.ar/",
+      "origin": "https://nowtv.express.com.ar"
+    },
+    {
+      "key": "verspective.net",
+      "referer": "https://player.sensa.com.ar/",
+      "origin": "https://player.sensa.com.ar"
+    },
+    {
+      "key": "dtvott.com",
+      "referer": "https://www.directvgo.com/",
+      "origin": "https://www.directvgo.com"
+    },
+    {
+      "key": "bitel.com.pe",
+      "referer": "https://play.bitel.com.pe/",
+      "origin": "https://play.bitel.com.pe"
+    },
+    {
+      "key": "newkso.ru",
+      "referer": "https://alldownplay.xyz/",
+      "origin": "https://alldownplay.xyz"
+    },
+    {
+      "key": "mono.m3u8",
+     "referer": "https://alldownplay.xyz/",
+      "origin": "https://alldownplay.xyz"
+    },
+    {
+      "key": "keylocking.ru",
+    "referer": "https://alldownplay.xyz/",
+      "origin": "https://alldownplay.xyz"
+     },
+    {
+      "key": "cloudflarestorage.com",
+    "referer": "https://alldownplay.xyz/",
+      "origin": "https://alldownplay.xyz"
+     }
+  ]
+}
