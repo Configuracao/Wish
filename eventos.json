@@ -1,35 +1,19 @@
 {
   "eventos": [
     {
-      "titulo": "Osasuna │ Atlético Madrid",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401558185/16x9/1280x720_20240515134212.jpg&showBadge=true&package=ESPN_PLUS",
+      "titulo": "Espn │ Disney Plus",
+      "descripcion": "Ver eventos disney",
+      "imagen": "https://dapsmagic.com/wp-content/uploads/2024/11/Disney-and-ESPN-Featured-Image.jpg",
       "fecha": "2025-05-15",
       "hora": "11:00",
       "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
     },
     {
-      "titulo": "Rayo Vallecano │ Real Betis",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401679849/16x9/1280x720_20241203203640.jpg&showBadge=true&package=ESPN_PLUS",
+      "titulo": "Espn │ Disney Plus",
+      "descripcion": "Ver eventos disney",
+      "imagen": "https://dapsmagic.com/wp-content/uploads/2024/11/Disney-and-ESPN-Featured-Image.jpg",
       "fecha": "2025-05-15",
       "hora": "11:00",
-      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
-    },
-    {
-      "titulo": "Espanyol │ Barcelona",
-      "descripcion": "Liga de España",
-      "imagen": "https://artwork.espncdn.com/events/401680033/16x9/1280x720_20250422225029.jpg",
-      "fecha": "2025-05-15",
-      "hora": "13:30",
-      "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
-    },
-    {
-      "titulo": "Getafe │ Athletic Club",
-      "descripcion": "Liga de España",
-      "imagen": "https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&cb=12&templateId=espn.core.dtc.large.16x9.1&source=https://artwork.espncdn.com/events/401680029/16x9/1280x720_20250424032109.jpg&showBadge=true&package=ESPN_PLUS",
-      "fecha": "2025-05-15",
-      "hora": "13:30",
       "enlace": "https://streamtp4.com/global1.php?stream=espndeportes"
     }
   ]
